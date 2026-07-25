@@ -163,6 +163,7 @@ article.recipe h3 {
   padding-left: 1.5rem;
   position: relative;
   font-family: 'Manrope', sans-serif;
+  font-weight: 600;
 }
 
 .recipe-info li:before {
