@@ -1,1 +1,240 @@
+/* ============================
+   CHARTE GRAPHIQUE - Dans les cerisiers
+   ============================ */
 
+/* Importer les polices de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ballet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+/* ============================
+   VARIABLES ET STYLES GÉNÉRAUX
+   ============================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Manrope', sans-serif;
+  background-color: white;
+  color: black;
+  line-height: 1.6;
+}
+
+/* ============================
+   HEADER ET NAVIGATION
+   ============================ */
+
+header {
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-family: 'Ballet', cursive;
+  font-size: 3rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+nav {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.7;
+}
+
+/* ============================
+   CONTENU PRINCIPAL
+   ============================ */
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  background-color: white;
+}
+
+/* ============================
+   ARTICLES ET RECETTES
+   ============================ */
+
+article.recipe {
+  background-color: white;
+}
+
+article.recipe h1 {
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 1rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+}
+
+article.recipe h2 {
+  font-size: 1.8rem;
+  color: black;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+}
+
+article.recipe h3 {
+  font-size: 1.3rem;
+  color: black;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+}
+
+.recipe-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.recipe-intro {
+  font-size: 1rem;
+  color: black;
+  font-style: italic;
+  line-height: 1.8;
+  font-family: 'Manrope', sans-serif;
+}
+
+.recipe-content {
+  margin-bottom: 2rem;
+}
+
+.step {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #fafafa;
+  border-left: 3px solid black;
+}
+
+.step p, .step ul {
+  color: black;
+  font-family: 'Manrope', sans-serif;
+}
+
+.step ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.step li {
+  margin-bottom: 0.5rem;
+}
+
+.recipe-info {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.recipe-info ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.recipe-info li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  font-family: 'Manrope', sans-serif;
+}
+
+.recipe-info li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: black;
+}
+
+/* ============================
+   BOUTONS ET LIENS
+   ============================ */
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+.recipe-nav {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid #eee;
+  color: black;
+  font-size: 0.9rem;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    gap: 1rem;
+  }
+
+  main {
+    padding: 0 1rem;
+  }
+
+  article.recipe h1 {
+    font-size: 1.8rem;
+  }
+
+  article.recipe h2 {
+    font-size: 1.4rem;
+  }
+}
