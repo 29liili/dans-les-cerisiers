@@ -1,0 +1,8 @@
+/index.html               → Page d’accueil
+/recettes/                → Dossier des recettes
+/recettes/ma-recette.html → Exemple de recette
+/carte/                   → Dossier de la carte interactive
+/carte/index.html         → Carte avec plusieurs lieux
+/assets/css/style.css     → Style général du site
+/assets/js/map.js         → Script pour la carte
+/assets/img/              → Images (recettes, icônes…)
