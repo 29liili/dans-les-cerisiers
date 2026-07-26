@@ -32,6 +32,8 @@
   <button data-cat="base">Bases</button>
 </div>
 
+<a href="./" class="back-button">← Retour </a>
+
 
     <!-- Conteneur des recettes -->
     <section id="recettes"></section>
@@ -67,7 +69,11 @@ fetch('../recettes.json')
 
           const titre = document.createElement('h3');
           titre.className = 'recipe-title';
-          titre.textContent = recette.titre;
+          const lien = document.createElement('a');
+          lien.href = `recette.html?id=${recette.id}`;
+          lien.textContent = recette.titre;
+          titre.appendChild(lien);
+
 
           const description = document.createElement('p');
           description.className = 'recipe-description';
