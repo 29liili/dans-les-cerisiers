@@ -25,9 +25,9 @@
     <h2 class="page-title">Toutes les recettes</h2>
     
     <!-- Barre de recherche -->
-<div class="search-bar">
-  <input type="text" id="search" placeholder="Rechercher une recette...">
-</div>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Rechercher une recette...">
+    </div>
 
     <!-- Filtres -->
     <div class="filters">
@@ -51,75 +51,81 @@
     <p>&copy; 2026 Dans les cerisiers. Tous droits réservés.</p>
   </footer>
 
-  fetch('../recettes.json')
-  .then(response => response.json())
-  .then(recettes => {
-    const container = document.getElementById('recettes');
-    const buttons = document.querySelectorAll('.filters button');
+  <!-- SCRIPT CORRIGÉ -->
+  <script>
+    fetch('../recettes.json')
+      .then(response => response.json())
+      .then(recettes => {
 
-    function afficherRecettes(categorie) {
-      container.innerHTML = '';
+        const container = document.getElementById('recettes');
+        const buttons = document.querySelectorAll('.filters button');
+        const searchInput = document.getElementById('search');
 
-      const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
+        function afficherRecettes(categorie) {
+          container.innerHTML = '';
 
-      if (liste.length === 0) {
-        container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
-        return;
-      }
+          const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
 
-      liste.forEach(recette => {
-        const article = document.createElement('article');
-        article.className = 'recipe-card';
+          if (liste.length === 0) {
+            container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
+            return;
+          }
 
-        const titre = document.createElement('h3');
-        titre.className = 'recipe-title';
+          liste.forEach(recette => {
+            const article = document.createElement('article');
+            article.className = 'recipe-card';
 
-        const lien = document.createElement('a');
-        lien.href = `indiv.html?id=${recette.id}`;
-        lien.textContent = recette.titre;
-        titre.appendChild(lien);
+            const titre = document.createElement('h3');
+            titre.className = 'recipe-title';
 
-        const description = document.createElement('p');
-        description.className = 'recipe-description';
-        description.textContent = recette.description;
+            const lien = document.createElement('a');
+            lien.href = `indiv.html?id=${recette.id}`;
+            lien.textContent = recette.titre;
+            titre.appendChild(lien);
 
-        const categorieEl = document.createElement('p');
-        categorieEl.className = 'recipe-category';
-        categorieEl.textContent = recette.categorie;
+            const description = document.createElement('p');
+            description.className = 'recipe-description';
+            description.textContent = recette.description;
 
-        article.appendChild(titre);
-        article.appendChild(description);
-        article.appendChild(categorieEl);
+            const categorieEl = document.createElement('p');
+            categorieEl.className = 'recipe-category';
+            categorieEl.textContent = recette.categorie;
 
-        container.appendChild(article);
+            article.appendChild(titre);
+            article.appendChild(description);
+            article.appendChild(categorieEl);
+
+            container.appendChild(article);
+          });
+        }
+
+        // Affichage initial
+        afficherRecettes('all');
+
+        // Filtres
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            afficherRecettes(btn.dataset.cat);
+          });
+        });
+
+        // Recherche en direct
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase();
+          const articles = document.querySelectorAll('#recettes article');
+
+          articles.forEach(article => {
+            const titre = article.querySelector('.recipe-title').textContent.toLowerCase();
+            const description = article.querySelector('.recipe-description').textContent.toLowerCase();
+
+            const match = titre.includes(query) || description.includes(query);
+
+            article.style.display = match ? '' : 'none';
+          });
+        });
+
       });
-    }
+  </script>
 
-    afficherRecettes('all');
-
-    // Filtres
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        afficherRecettes(btn.dataset.cat);
-      });
-    });
-
-    // Recherche en direct
-    const searchInput = document.getElementById('search');
-
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.toLowerCase();
-
-      const articles = document.querySelectorAll('#recettes article');
-
-      articles.forEach(article => {
-        const titre = article.querySelector('.recipe-title').textContent.toLowerCase();
-        const description = article.querySelector('.recipe-description').textContent.toLowerCase();
-
-        const match = titre.includes(query) || description.includes(query);
-
-        article.style.display = match ? '' : 'none';
-      });
-    });
-  });
-
+</body>
+</html>
