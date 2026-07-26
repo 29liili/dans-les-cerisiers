@@ -7,52 +7,9 @@
   <title>Dans les cerisiers - Recettes culinaires</title>
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<script>
-fetch('recettes.json')
-  .then(response => response.json())
-  .then(recettes => {
-    const container = document.getElementById('recettes');
-
-    recettes.forEach(recette => {
-      // Création du bloc recette
-      const article = document.createElement('article');
-      article.className = 'recipe-card';
-
-      // Titre
-      const titre = document.createElement('h3');
-      titre.className = 'recipe-title';
-      titre.textContent = recette.titre;
-
-      // Description
-      const description = document.createElement('p');
-      description.className = 'recipe-description';
-      description.textContent = recette.description;
-
-      // Étapes
-      const etapesTitre = document.createElement('h4');
-      etapesTitre.textContent = 'Préparation';
-
-      const listeEtapes = document.createElement('ol');
-      listeEtapes.className = 'recipe-steps';
-
-      recette.etapes.forEach(etape => {
-        const li = document.createElement('li');
-        li.innerHTML = etape; // IMPORTANT : innerHTML pour garder le <strong>
-        listeEtapes.appendChild(li);
-      });
-
-      // Assemblage
-      article.appendChild(titre);
-      article.appendChild(description);
-      article.appendChild(etapesTitre);
-      article.appendChild(listeEtapes);
-
-      container.appendChild(article);
-    });
-  });
-</script>
 
 <body>
+
   <header>
     <h1>Dans les cerisiers</h1>
     <nav>
@@ -65,40 +22,10 @@ fetch('recettes.json')
 
   <main>
 
-  <h2 class="page-title">Répertoire de recettes</h2
-                                                 
-  <section id="recettes"></section>
-                                               
+    <h2 class="page-title">Répertoire de recettes</h2>
 
-    <section class="featured-recipe">
-      <h2>Recette mise en avant</h2>
-      <article class="recipe-card">
-        <h3>Sauce Béarnaise</h3>
-        <p class="recipe-description">Sauce émulsionnée semi-coagulée chaude incontournable de la cuisine française, elle fut inventée à Paris en 1837, par un chef du Pavillon Henri IV. Ce dernier, le roi Henri IV, était originaire de Pau, en Béarn, ce qui expliquerait le choix de l’appellation de la sauce.</p>
-        <ol class="recipe-steps">
-
-  <li>
-  Laver et effeuiller du <strong>cerfeuil</strong>, de l’<strong>estragon</strong> et du <strong>persil</strong>.
-  Réserver les tiges et hacher les feuilles.
-</li>
-
-<li>
-  Faire suer <strong>2 échalotes</strong> ciselées et les tiges dans un peu de beurre.
-  Ajouter <strong>270 g de vin blanc</strong> et <strong>135 g de vinaigre de cidre</strong>.
-  Réduire jusqu’à environ <strong>100 ml</strong>.
-</li>
-
-<li>
-  Faire fondre <strong>250 g de beurre</strong>.
-  Peser <strong>130 g de jaune d’œuf</strong>, <strong>100 g de réduction béarnaise</strong>,
-  <strong>30 g d’eau</strong> et du <strong>sel</strong>.
-  Monter le sabayon à feu doux.
-</li>
-
-</ol>
-
-      </article>
-    </section>
+    <!-- Les recettes JSON seront injectées ici -->
+    <section id="recettes"></section>
 
     <section class="explore">
       <h2>Explorer</h2>
@@ -108,15 +35,58 @@ fetch('recettes.json')
         <li><a href="./a-propos/">ℹ️ À propos</a></li>
       </ul>
     </section>
+
   </main>
 
   <footer>
     <img 
-  src="./assets/images/logo.png"
-  alt="Logo Dans les cerisiers"
-  class="footer-logo"
->
+      src="./assets/images/logo.png"
+      alt="Logo Dans les cerisiers"
+      class="footer-logo"
+    >
     <p>&copy; 2026 Dans les cerisiers. Tous droits réservés.</p>
   </footer>
+
+  <!-- Script pour charger les recettes JSON -->
+  <script>
+    fetch('recettes.json')
+      .then(response => response.json())
+      .then(recettes => {
+        const container = document.getElementById('recettes');
+
+        recettes.forEach(recette => {
+          const article = document.createElement('article');
+          article.className = 'recipe-card';
+
+          const titre = document.createElement('h3');
+          titre.className = 'recipe-title';
+          titre.textContent = recette.titre;
+
+          const description = document.createElement('p');
+          description.className = 'recipe-description';
+          description.textContent = recette.description;
+
+          const etapesTitre = document.createElement('h4');
+          etapesTitre.textContent = 'Préparation';
+
+          const listeEtapes = document.createElement('ol');
+          listeEtapes.className = 'recipe-steps';
+
+          recette.etapes.forEach(etape => {
+            const li = document.createElement('li');
+            li.innerHTML = etape; // garde les <strong>
+            listeEtapes.appendChild(li);
+          });
+
+          article.appendChild(titre);
+          article.appendChild(description);
+          article.appendChild(etapesTitre);
+          article.appendChild(listeEtapes);
+
+          container.appendChild(article);
+        });
+      });
+  </script>
+
 </body>
 </html>
