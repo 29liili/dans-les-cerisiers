@@ -183,6 +183,15 @@ article.recipe h3 {
   left: 0;
   color: black;
 }
+.recipe-steps {
+  margin-left: 1.5rem;
+  line-height: 1.7;
+}
+
+.recipe-steps li {
+  margin-bottom: 1rem;
+}
+
 
 /* ============================
    BOUTONS ET LIENS
