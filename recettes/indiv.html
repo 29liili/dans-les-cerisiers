@@ -20,7 +20,7 @@
   </header>
 
   <main>
-    <section id="recette"></section>
+    <section id="recette" class="recette-container"></section>
   </main>
 
   <footer>
@@ -40,36 +40,42 @@
         const container = document.getElementById('recette');
 
         if (!recette) {
-          container.innerHTML = "<p>Recette introuvable.</p>";
+          container.innerHTML = "<p class='no-recipes'>Recette introuvable.</p>";
           return;
         }
 
         const article = document.createElement('article');
         article.className = 'recipe-card';
-        
-  if (recette.image) {
-  const img = document.createElement('img');
-  img.src = recette.image;
-  img.alt = recette.titre;
-  img.className = 'recipe-image';
-  article.appendChild(img);
-}
 
+        /* IMAGE EN HAUT */
+        if (recette.image) {
+          const img = document.createElement('img');
+          img.src = recette.image;
+          img.alt = recette.titre;
+          img.className = 'recipe-image';
+          article.appendChild(img);
+        }
 
+        /* TITRE */
         const titre = document.createElement('h2');
+        titre.className = 'recipe-title';
         titre.textContent = recette.titre;
 
+        /* CATÉGORIE */
         const categorie = document.createElement('p');
         categorie.className = 'recipe-category';
         categorie.textContent = recette.categorie;
 
+        /* DESCRIPTION */
         const description = document.createElement('p');
         description.className = 'recipe-description';
         description.textContent = recette.description;
 
+        /* TITRE ÉTAPES */
         const etapesTitre = document.createElement('h3');
         etapesTitre.textContent = "Préparation";
 
+        /* LISTE DES ÉTAPES */
         const listeEtapes = document.createElement('ol');
         listeEtapes.className = 'recipe-steps';
 
@@ -79,11 +85,19 @@
           listeEtapes.appendChild(li);
         });
 
+        /* BOUTON RETOUR */
+        const retour = document.createElement('a');
+        retour.href = "./";
+        retour.className = "btn";
+        retour.textContent = "← Retour aux recettes";
+
+        /* ASSEMBLAGE */
         article.appendChild(titre);
         article.appendChild(categorie);
         article.appendChild(description);
         article.appendChild(etapesTitre);
         article.appendChild(listeEtapes);
+        article.appendChild(retour);
 
         container.appendChild(article);
       });
