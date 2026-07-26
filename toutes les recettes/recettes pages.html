@@ -58,52 +58,41 @@ fetch('../recettes.json')
     const buttons = document.querySelectorAll('.filters button');
 
     function afficherRecettes(categorie) {
-      container.innerHTML = '';
+  container.innerHTML = '';
 
-      recettes
-        .filter(recette => categorie === 'all' || recette.categorie === categorie)
-        .forEach(recette => {
+  const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
 
-          const article = document.createElement('article');
-          article.className = 'recipe-card';
+  if (liste.length === 0) {
+    container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
+    return;
+  }
 
-          const titre = document.createElement('h3');
-          titre.className = 'recipe-title';
-          const lien = document.createElement('a');
-          lien.href = `recette.html?id=${recette.id}`;
-          lien.textContent = recette.titre;
-          titre.appendChild(lien);
+  liste.forEach(recette => {
+    const article = document.createElement('article');
+    article.className = 'recipe-card';
 
+    const titre = document.createElement('h3');
+    titre.className = 'recipe-title';
+    const lien = document.createElement('a');
+    lien.href = `recette.html?id=${recette.id}`;
+    lien.textContent = recette.titre;
+    titre.appendChild(lien);
 
-          const description = document.createElement('p');
-          description.className = 'recipe-description';
-          description.textContent = recette.description;
+    const description = document.createElement('p');
+    description.className = 'recipe-description';
+    description.textContent = recette.description;
 
-          const categorieEl = document.createElement('p');
-          categorieEl.className = 'recipe-category';
-          categorieEl.textContent = recette.categorie;
+    const categorieEl = document.createElement('p');
+    categorieEl.className = 'recipe-category';
+    categorieEl.textContent = recette.categorie;
 
-          const etapesTitre = document.createElement('h4');
-          etapesTitre.textContent = 'Préparation';
+    article.appendChild(titre);
+    article.appendChild(description);
+    article.appendChild(categorieEl);
 
-          const listeEtapes = document.createElement('ol');
-          listeEtapes.className = 'recipe-steps';
-
-          recette.etapes.forEach(etape => {
-            const li = document.createElement('li');
-            li.innerHTML = etape;
-            listeEtapes.appendChild(li);
-          });
-
-          article.appendChild(titre);
-          article.appendChild(description);
-          article.appendChild(categorieEl);
-          article.appendChild(etapesTitre);
-          article.appendChild(listeEtapes);
-
-          container.appendChild(article);
-        });
-    }
+    container.appendChild(article);
+  });
+}
 
     // Affichage initial
     afficherRecettes('all');
