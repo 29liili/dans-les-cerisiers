@@ -2,12 +2,12 @@
    CHARTE GRAPHIQUE - Dans les cerisiers
    ============================ */
 
-/* Importer les polices de Google Fonts */
+/* Polices */
 @import url('https://fonts.googleapis.com/css2?family=Ballet&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 /* ============================
-   VARIABLES ET STYLES GÉNÉRAUX
+   RESET & BASE
    ============================ */
 
 * {
@@ -24,10 +24,10 @@ html, body {
 }
 
 /* ============================
-   HEADER ET NAVIGATION
+   HEADER
    ============================ */
 
- header {
+header {
   background-color: white;
   border-bottom: 1px solid #eee;
   padding: 2rem clamp(1rem, 4vw, 3rem);
@@ -36,22 +36,20 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* pour éviter les bugs sur mobile */
+  flex-wrap: wrap;
 }
+
 header h1 {
   font-family: 'Ballet', cursive;
   font-size: 3rem;
   color: black;
-  margin: 0; /* important pour éviter un décalage */
-  text-align: left; /* tu le voulais à gauche */
+  margin: 0;
 }
 
 nav {
   display: flex;
   gap: 2rem;
-  justify-content: flex-end;
   flex-wrap: wrap;
-  text-align: right;
 }
 
 nav a {
@@ -67,164 +65,95 @@ nav a:hover {
 }
 
 /* ============================
-   CONTENU PRINCIPAL
+   MAIN
    ============================ */
 
 main {
-  width: 50%;
-  margin: 0 auto;        /* centre la colonne */
-  padding: 0 1.5rem;     /* petites marges internes */
-  background-color: white;
+  width: min(800px, 90%);
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
+
 .page-title {
-  font-family: 'Manrope', sans-serif;
   font-size: 2rem;
   font-weight: 600;
-  text-align: left;
   margin-bottom: 2rem;
-  color: black;
 }
 
 /* ============================
-   ARTICLES ET RECETTES
+   FILTRES
    ============================ */
+
+.filters {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #f6f2f8;
+  font-family: "Ballet", serif;
+  font-size: 1.2rem;
+  color: #5a4a63;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.filters button:hover {
+  background: #e8e0ee;
+  color: #2e2533;
+}
+
 .no-recipes {
   font-family: "Ballet", serif;
   font-size: 1.4rem;
   color: #7a6a84;
   text-align: center;
   margin-top: 2rem;
+  opacity: 0.85;
 }
-
-article.recipe {
-  background-color: white;
-}
-
-article.recipe h1 {
-  font-size: 2.5rem;
-  color: black;
-  margin-bottom: 1rem;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-}
-
-article.recipe h2 {
-  font-size: 1.8rem;
-  color: black;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-}
-
-article.recipe h3 {
-  font-size: 1.3rem;
-  color: black;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-}
-
-.recipe-header {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 1.5rem;
-}
-
-.recipe-intro {
-  font-size: 1rem;
-  color: black;
-  font-style: italic;
-  line-height: 1.8;
-  font-family: 'Manrope', sans-serif;
-}
-
-.recipe-content {
-  margin-bottom: 2rem;
-}
-
-.step {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background-color: #fafafa;
-  border-left: 3px solid black;
-}
-
-.step p, .step ul {
-  color: black;
-  font-family: 'Manrope', sans-serif;
-}
-
-.step ul {
-  margin-left: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-.step li {
-  margin-bottom: 0.5rem;
-}
-
-.recipe-info {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #eee;
-}
-
-.recipe-info ul {
-  list-style: none;
-  margin-left: 0;
-}
-
-.recipe-info li {
-  padding: 0.5rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-}
-
-.recipe-info li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: black;
-}
-.recipe-steps {
-  margin-left: 1.5rem;
-  line-height: 1.7;
-}
-
-.recipe-steps li {
-  margin-bottom: 1rem;
-}
-
 
 /* ============================
-   BOUTONS ET LIENS
+   CARTES DE RECETTES
    ============================ */
 
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: black;
-  color: white;
+.recipe-card {
+  background: #faf7fb;
+  padding: 1.5rem;
+  border-radius: 18px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.recipe-title a {
+  font-family: "Ballet", serif;
+  font-size: 1.8rem;
+  color: #3a2e3f;
   text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  margin-top: 1.5rem;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 500;
 }
 
-.btn:hover {
-  background-color: #333;
+.recipe-title a:hover {
+  opacity: 0.7;
 }
 
-.recipe-nav {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
+.recipe-description {
+  margin: 1rem 0;
+  color: #4a3f4f;
+}
+
+.recipe-category {
+  display: inline-block;
+  background: #f0e6f5;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8b6f92;
+  margin-bottom: 1rem;
 }
 
 /* ============================
@@ -236,16 +165,13 @@ footer {
   padding: 2rem 0;
   margin-top: 3rem;
   border-top: 1px solid #eee;
-  color: black;
   font-size: 0.9rem;
-  font-family: 'Manrope', sans-serif;
-}
-.footer-logo {
-  width: 120px;
-  height: auto;
-  filter: grayscale(100%) contrast(105%);
 }
 
+.footer-logo {
+  width: 120px;
+  filter: grayscale(100%) contrast(105%);
+}
 
 /* ============================
    RESPONSIVE
@@ -260,15 +186,7 @@ footer {
     gap: 1rem;
   }
 
-  main {
-    padding: 0 1rem;
-  }
-
-  article.recipe h1 {
-    font-size: 1.8rem;
-  }
-
-  article.recipe h2 {
-    font-size: 1.4rem;
+  .recipe-title a {
+    font-size: 1.5rem;
   }
 }
