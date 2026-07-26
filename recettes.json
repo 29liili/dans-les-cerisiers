@@ -7,7 +7,76 @@
       "1/ Laver et effeuiller du **cerfeuil**, de l’**estragon** et du **persil**. Réserver les tiges et hacher les feuilles.",
       "2/ Faire suer **2 échalotes** ciselées et les tiges dans un peu de beurre. Ajouter **270 g de vin blanc** et **135 g de vinaigre de cidre**. Réduire jusqu’à environ **100 ml**. Passer au chinois étamine.",
       "3/ Faire fondre **250 g de beurre**. Dans une casserole, mélanger **130 g de jaune d’œuf**, **100 g de réduction béarnaise**, **30 g d’eau** et du **sel**. Monter le sabayon à feu doux sans dépasser 60°C. Ajouter le beurre fondu petit à petit."
-      "4/ Ajouter les herbes fraîches ciselées.
+      "4/ Ajouter les herbes fraîches ciselées."
     ]
   }
 ]
+{
+  "id": "flan-patissier",
+  "titre": "Flan pâtissier",
+  "description": "On devrait normalement appeler cette pâtisserie « flan parisien », car le véritable flan pâtissier ne contient pas de pâte. Son origine remonte au 13e siècle dans la région d’Amiens, sous le nom de dariole.",
+  "etapes": [
+
+    "Pour un cercle de <strong>Ø16 cm</strong>.",
+
+    "Sabler <strong>200 g de farine</strong> + <strong>3,2 g de sel</strong> + <strong>8 g de sucre</strong> + <strong>100 g de beurre</strong>.",
+    "À part, mélanger <strong>16 g de jaune d’œuf</strong> + <strong>58 g d’eau</strong>, puis les ajouter au mélange sec.",
+    "Lorsque la pâte est homogène, filmer et laisser reposer <strong>3 h au frais</strong>.",
+    "Étaler la pâte à <strong>3 mm</strong> et foncer le cercle beurré, sans couper les bords. Laisser refroidir <strong>1 h</strong>.",
+    "Préchauffer le four à <strong>170°C</strong>.",
+    "Cuire la pâte à blanc : piquer le fond, ajouter un poids si souhaité, et cuire <strong>15 min</strong>.",
+    "Araser les bords puis remettre au four <strong>16 min</strong>.",
+    "Badigeonner de <strong>blanc d’œuf</strong> pour imperméabiliser, puis cuire encore <strong>5 min</strong>.",
+
+    "Dans une casserole, chauffer <strong>400 g de lait</strong> + <strong>400 g de crème</strong> + <strong>2 gousses de vanille</strong>. Couvrir et laisser infuser <strong>20 min</strong> hors du feu.",
+    "Mélanger <strong>1 œuf</strong> + <strong>60 g de jaune d’œuf</strong> + <strong>170 g de sucre de canne</strong> + <strong>40 g de maïzena</strong> + <strong>20 g de farine</strong>.",
+    "Faire rebouillir le lait/crème. Verser un tiers sur le mélange œufs, homogénéiser, puis transvaser dans la casserole.",
+    "Cuire à feu doux en mélangeant, quelques minutes après ébullition, jusqu’à disparition des grumeaux.",
+    "Lisser l’appareil avec <strong>30 g de beurre froid</strong>.",
+    "Débarrasser, filmer au contact et refroidir au frigo.",
+    "Détendre l’appareil au fouet, le verser dans la pâte, puis cuire <strong>20 min à 170°C</strong> jusqu’à belle coloration.",
+    "Démouler une fois complètement refroidi."
+  ]
+}
+{
+  "id": "clafoutis-cerises",
+  "titre": "Clafoutis aux cerises",
+  "description": "Originaire du Limousin, popularisé au XIXe siècle, le clafoutis est devenu un classique familial du début de l’été.",
+  "etapes": [
+    "Préchauffer le four à <strong>190°C</strong>.",
+    "Dans un saladier, mélanger <strong>150 g de farine</strong> + <strong>100 g de sucre</strong> + <strong>25 cl de lait</strong> + <strong>3 œufs</strong> + <strong>11 g de sucre vanillé</strong>.",
+    "Beurrer un moule à manquer, puis le tapisser de <strong>cerises entières</strong>. Ne pas les dénoyauter pour éviter qu’elles détrempent la pâte.",
+    "Verser l’appareil sur les cerises.",
+    "Enfourner environ <strong>40 min</strong>."
+  ]
+}
+{
+  "id": "bechamel",
+  "titre": "Sauce Béchamel",
+  "description": "Base incontournable de la cuisine française, perfectionnée par Louis de Béchameil mais inventée par le chef La Varenne, auteur du premier livre de cuisine moderne en 1651.",
+  "etapes": [
+    "Faire un roux blanc : dans une casserole, faire fondre <strong>80 g de beurre demi-sel</strong>. À feu doux, ajouter <strong>80 g de farine</strong> et cuire sans coloration.",
+    "Hors du feu, verser <strong>1 L de lait entier froid</strong> sur le roux. Remettre à chauffer en mélangeant. Après ébullition et épaississement, laisser cuire encore <strong>2 min</strong>.",
+    "Assaisonner avec <strong>sel</strong>, <strong>poivre blanc</strong> et <strong>noix de muscade</strong>.",
+    "<strong>Sauce Mornay</strong> : béchamel + gruyère.",
+    "<strong>Sauce Nantua</strong> : béchamel + crème+beurre d’écrevisse.",
+    "<strong>Sauce Crème</strong> : béchamel avec 50 cl de lait+ 50 cl de crème + encore de la crème.",
+    "<strong>Sauce Soubise</strong> : béchamel + oignons ciselés réduits au beurre sans coloration.",
+    "<strong>Sauce Aurore</strong> : béchamel + sauce tomate."
+  ]
+}
+{
+  "id": "pates-fraiches",
+  "titre": "Pâtes fraîches",
+  "description": "Deux préparations traditionnelles : les pâtes classiques et la pâte à ravioles, idéales pour des plats maison.",
+  "etapes": [
+    "PÂTES CLASSIQUES : Mélanger <strong>425 g de semoule extra-fine</strong> + <strong>125 g de farine 00 ou T45</strong> + <strong>6 jaunes</strong> + <strong>3 œufs</strong> + <strong>10 g de sel</strong>.",
+    "Former une boule homogène et laisser reposer au frigo pendant <strong>6 h</strong>.",
+    "Étaler et façonner les pâtes.",
+    "Cuire dans une eau bouillante salée environ <strong>2 à 3 min</strong> selon l’épaisseur.",
+    "PÂTE À RAVIOLES : Mélanger <strong>500 g de farine 00 ou T45</strong> + <strong>5 œufs</strong> + <strong>30 g d’huile d’olive</strong> + <strong>10 g de sel</strong>.",
+    "Former une boule homogène et laisser reposer au frigo pendant <strong>2 h</strong>.",
+    "Étaler la pâte à <strong>2 mm</strong> au laminoir. Façonner les ravioles en évitant que les bandeaux de pâte ne sèchent : travailler par portions et garder le reste couvert.",
+    "Cuire délicatement dans une eau bouillante salée environ <strong>2 à 3 min</strong>."
+  ]
+}
