@@ -2,6 +2,7 @@
   {
     "id": "bearnaise",
     "titre": "Sauce Béarnaise",
+    "categorie": "sauce"
     "description": "Sauce émulsionnée chaude incontournable de la cuisine française.",
     "etapes": [
       "1/ Laver et effeuiller du **cerfeuil**, de l’**estragon** et du **persil**. Réserver les tiges et hacher les feuilles.",
@@ -14,6 +15,7 @@
 {
   "id": "flan-patissier",
   "titre": "Flan pâtissier",
+  "categorie": "sucré"
   "description": "On devrait normalement appeler cette pâtisserie « flan parisien », car le véritable flan pâtissier ne contient pas de pâte. Son origine remonte au 13e siècle dans la région d’Amiens, sous le nom de dariole.",
   "etapes": [
 
@@ -41,6 +43,7 @@
 {
   "id": "clafoutis-cerises",
   "titre": "Clafoutis aux cerises",
+  "categorie": "sucré"
   "description": "Originaire du Limousin, popularisé au XIXe siècle, le clafoutis est devenu un classique familial du début de l’été.",
   "etapes": [
     "Préchauffer le four à <strong>190°C</strong>.",
@@ -53,6 +56,7 @@
 {
   "id": "bechamel",
   "titre": "Sauce Béchamel",
+  "categorie": "sauce"
   "description": "Base incontournable de la cuisine française, perfectionnée par Louis de Béchameil mais inventée par le chef La Varenne, auteur du premier livre de cuisine moderne en 1651.",
   "etapes": [
     "Faire un roux blanc : dans une casserole, faire fondre <strong>80 g de beurre demi-sel</strong>. À feu doux, ajouter <strong>80 g de farine</strong> et cuire sans coloration.",
@@ -68,6 +72,7 @@
 {
   "id": "pates-fraiches",
   "titre": "Pâtes fraîches",
+  "categorie": "pâtes"
   "description": "Deux préparations traditionnelles : les pâtes classiques et la pâte à ravioles, idéales pour des plats maison.",
   "etapes": [
     "PÂTES CLASSIQUES : Mélanger <strong>425 g de semoule extra-fine</strong> + <strong>125 g de farine 00 ou T45</strong> + <strong>6 jaunes</strong> + <strong>3 œufs</strong> + <strong>10 g de sel</strong>.",
