@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Toutes les recettes du site Dans les cerisiers">
+  <title>Toutes les recettes – Dans les cerisiers</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Dans les cerisiers</h1>
+    <nav>
+      <a href="../">Accueil</a>
+      <a href="./">Recettes</a>
+      <a href="../carte/">Adresses</a>
+      <a href="../a-propos/">À propos</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <h2 class="page-title">Toutes les recettes</h2>
+
+    <!-- Filtres -->
+    <div class="filters">
+      <button data-cat="all">Toutes</button>
+      <button data-cat="chaud">Chaud</button>
+      <button data-cat="sauce">Sauce</button>
+      <button data-cat="sucré">Sucré</button>
+    </div>
+
+    <!-- Conteneur des recettes -->
+    <section id="recettes"></section>
+
+  </main>
+
+  <footer>
+    <img 
+      src="../assets/images/logo.png"
+      alt="Logo Dans les cerisiers"
+      class="footer-logo"
+    >
+    <p>&copy; 2026 Dans les cerisiers. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Script pour charger les recettes JSON -->
+  <script>
+    fetch('../recettes.json')
+      .then(response => response.json())
+      .then(recettes => {
+        const container = document.getElementById('recettes');
+        const buttons = document.querySelectorAll('.filters button');
+
+        function afficherRecettes(categorie) {
+          container.innerHTML = '';
+
+          const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
+
+          if (liste.length === 0) {
+            container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
+            return;
+          }
+
+          liste.forEach(recette => {
+            const article = document.createElement('article');
+            article.className = 'recipe-card';
+
+            const titre = document.createElement('h3');
+            titre.className = 'recipe-title';
+
+            const lien = document.createElement('a');
+            lien.href = `recette.html?id=${recette.id}`;
+            lien.textContent = recette.titre;
+            titre.appendChild(lien);
+
+            const description = document.createElement('p');
+            description.className = 'recipe-description';
+            description.textContent = recette.description;
+
+            const categorieEl = document.createElement('p');
+            categorieEl.className = 'recipe-category';
+            categorieEl.textContent = recette.categorie;
+
+            article.appendChild(titre);
+            article.appendChild(description);
+            article.appendChild(categorieEl);
+
+            container.appendChild(article);
+          });
+        }
+
+        afficherRecettes('all');
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            afficherRecettes(btn.dataset.cat);
+          });
+        });
+      });
+  </script>
+
+</body>
+</html>
