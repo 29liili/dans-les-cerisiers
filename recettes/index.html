@@ -51,8 +51,14 @@
     <p>&copy; 2026 Dans les cerisiers. Tous droits réservés.</p>
   </footer>
 
-  <!-- SCRIPT CORRIGÉ -->
+  <!-- SCRIPT COMPLET ET CORRIGÉ -->
   <script>
+
+    /* Fonction pour retirer les accents */
+    function sansAccents(str) {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
     fetch('../recettes.json')
       .then(response => response.json())
       .then(recettes => {
@@ -61,6 +67,7 @@
         const buttons = document.querySelectorAll('.filters button');
         const searchInput = document.getElementById('search');
 
+        /* Affichage des recettes */
         function afficherRecettes(categorie) {
           container.innerHTML = '';
 
@@ -99,24 +106,24 @@
           });
         }
 
-        // Affichage initial
+        /* Affichage initial */
         afficherRecettes('all');
 
-        // Filtres
+        /* Filtres */
         buttons.forEach(btn => {
           btn.addEventListener('click', () => {
             afficherRecettes(btn.dataset.cat);
           });
         });
 
-        // Recherche en direct
+        /* Recherche insensible aux accents */
         searchInput.addEventListener('input', () => {
-          const query = searchInput.value.toLowerCase();
+          const query = sansAccents(searchInput.value.toLowerCase());
           const articles = document.querySelectorAll('#recettes article');
 
           articles.forEach(article => {
-            const titre = article.querySelector('.recipe-title').textContent.toLowerCase();
-            const description = article.querySelector('.recipe-description').textContent.toLowerCase();
+            const titre = sansAccents(article.querySelector('.recipe-title').textContent.toLowerCase());
+            const description = sansAccents(article.querySelector('.recipe-description').textContent.toLowerCase());
 
             const match = titre.includes(query) || description.includes(query);
 
