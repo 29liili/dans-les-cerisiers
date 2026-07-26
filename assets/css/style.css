@@ -27,28 +27,31 @@ html, body {
    HEADER ET NAVIGATION
    ============================ */
 
-header {
+ header {
   background-color: white;
   border-bottom: 1px solid #eee;
   padding: 2rem 0;
   margin-bottom: 2rem;
-}
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* pour éviter les bugs sur mobile */
+}
 header h1 {
   font-family: 'Ballet', cursive;
   font-size: 3rem;
   color: black;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
+  margin: 0; /* important pour éviter un décalage */
+  text-align: left; /* tu le voulais à gauche */
 }
 
 nav {
-  text-align: center;
   display: flex;
-  justify-content: center;
   gap: 2rem;
+  justify-content: flex-end;
   flex-wrap: wrap;
+  text-align: right;
 }
 
 nav a {
@@ -213,6 +216,12 @@ footer {
   font-size: 0.9rem;
   font-family: 'Manrope', sans-serif;
 }
+.footer-logo {
+  width: 120px;
+  height: auto;
+  filter: grayscale(100%) contrast(120%);
+}
+
 
 /* ============================
    RESPONSIVE
