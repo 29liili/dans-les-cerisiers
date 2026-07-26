@@ -51,61 +51,75 @@
     <p>&copy; 2026 Dans les cerisiers. Tous droits réservés.</p>
   </footer>
 
-  <!-- Script pour charger les recettes JSON -->
-  <script>
-    fetch('../recettes.json')
-      .then(response => response.json())
-      .then(recettes => {
-        const container = document.getElementById('recettes');
-        const buttons = document.querySelectorAll('.filters button');
+  fetch('../recettes.json')
+  .then(response => response.json())
+  .then(recettes => {
+    const container = document.getElementById('recettes');
+    const buttons = document.querySelectorAll('.filters button');
 
-        function afficherRecettes(categorie) {
-          container.innerHTML = '';
+    function afficherRecettes(categorie) {
+      container.innerHTML = '';
 
-          const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
+      const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
 
-          if (liste.length === 0) {
-            container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
-            return;
-          }
+      if (liste.length === 0) {
+        container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
+        return;
+      }
 
-          liste.forEach(recette => {
-            const article = document.createElement('article');
-            article.className = 'recipe-card';
+      liste.forEach(recette => {
+        const article = document.createElement('article');
+        article.className = 'recipe-card';
 
-            const titre = document.createElement('h3');
-            titre.className = 'recipe-title';
+        const titre = document.createElement('h3');
+        titre.className = 'recipe-title';
 
-            const lien = document.createElement('a');
-            lien.href = `indiv.html?id=${recette.id}`;
-            lien.textContent = recette.titre;
-            titre.appendChild(lien);
+        const lien = document.createElement('a');
+        lien.href = `indiv.html?id=${recette.id}`;
+        lien.textContent = recette.titre;
+        titre.appendChild(lien);
 
-            const description = document.createElement('p');
-            description.className = 'recipe-description';
-            description.textContent = recette.description;
+        const description = document.createElement('p');
+        description.className = 'recipe-description';
+        description.textContent = recette.description;
 
-            const categorieEl = document.createElement('p');
-            categorieEl.className = 'recipe-category';
-            categorieEl.textContent = recette.categorie;
+        const categorieEl = document.createElement('p');
+        categorieEl.className = 'recipe-category';
+        categorieEl.textContent = recette.categorie;
 
-            article.appendChild(titre);
-            article.appendChild(description);
-            article.appendChild(categorieEl);
+        article.appendChild(titre);
+        article.appendChild(description);
+        article.appendChild(categorieEl);
 
-            container.appendChild(article);
-          });
-        }
-
-        afficherRecettes('all');
-
-        buttons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            afficherRecettes(btn.dataset.cat);
-          });
-        });
+        container.appendChild(article);
       });
-  </script>
+    }
 
-</body>
-</html>
+    afficherRecettes('all');
+
+    // Filtres
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        afficherRecettes(btn.dataset.cat);
+      });
+    });
+
+    // Recherche en direct
+    const searchInput = document.getElementById('search');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+
+      const articles = document.querySelectorAll('#recettes article');
+
+      articles.forEach(article => {
+        const titre = article.querySelector('.recipe-title').textContent.toLowerCase();
+        const description = article.querySelector('.recipe-description').textContent.toLowerCase();
+
+        const match = titre.includes(query) || description.includes(query);
+
+        article.style.display = match ? '' : 'none';
+      });
+    });
+  });
+
