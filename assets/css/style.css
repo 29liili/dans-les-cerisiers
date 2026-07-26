@@ -88,6 +88,13 @@ main {
 /* ============================
    ARTICLES ET RECETTES
    ============================ */
+.no-recipes {
+  font-family: "Ballet", serif;
+  font-size: 1.4rem;
+  color: #7a6a84;
+  text-align: center;
+  margin-top: 2rem;
+}
 
 article.recipe {
   background-color: white;
