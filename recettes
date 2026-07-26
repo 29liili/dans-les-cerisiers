@@ -23,6 +23,15 @@
   <main>
 
     <h2 class="page-title">Toutes les recettes</h2>
+<div class="filters">
+  <button data-cat="all">Toutes</button>
+  <button data-cat="chaud">Chaud</button>
+  <button data-cat="froid">Froid</button>
+  <button data-cat="sauce">Sauce</button>
+  <button data-cat="sucré">Sucré</button>
+  <button data-cat="base">Bases</button>
+</div>
+
 
     <!-- Conteneur des recettes -->
     <section id="recettes"></section>
@@ -39,13 +48,20 @@
   </footer>
 
   <!-- Script pour charger les recettes JSON -->
-  <script>
-    fetch('../recettes.json')
-      .then(response => response.json())
-      .then(recettes => {
-        const container = document.getElementById('recettes');
+ <script>
+fetch('../recettes.json')
+  .then(response => response.json())
+  .then(recettes => {
+    const container = document.getElementById('recettes');
+    const buttons = document.querySelectorAll('.filters button');
 
-        recettes.forEach(recette => {
+    function afficherRecettes(categorie) {
+      container.innerHTML = '';
+
+      recettes
+        .filter(recette => categorie === 'all' || recette.categorie === categorie)
+        .forEach(recette => {
+
           const article = document.createElement('article');
           article.className = 'recipe-card';
 
@@ -57,6 +73,10 @@
           description.className = 'recipe-description';
           description.textContent = recette.description;
 
+          const categorieEl = document.createElement('p');
+          categorieEl.className = 'recipe-category';
+          categorieEl.textContent = recette.categorie;
+
           const etapesTitre = document.createElement('h4');
           etapesTitre.textContent = 'Préparation';
 
@@ -65,19 +85,29 @@
 
           recette.etapes.forEach(etape => {
             const li = document.createElement('li');
-            li.innerHTML = etape; // garde les <strong>
+            li.innerHTML = etape;
             listeEtapes.appendChild(li);
           });
 
           article.appendChild(titre);
           article.appendChild(description);
+          article.appendChild(categorieEl);
           article.appendChild(etapesTitre);
           article.appendChild(listeEtapes);
 
           container.appendChild(article);
         });
-      });
-  </script>
+    }
 
-</body>
-</html>
+    // Affichage initial
+    afficherRecettes('all');
+
+    // Gestion des filtres
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.cat;
+        afficherRecettes(cat);
+      });
+    });
+  });
+</script>
