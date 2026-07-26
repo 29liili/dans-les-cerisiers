@@ -96,7 +96,7 @@ main {
   border-radius: 10px;
   border: none;
   background: #f6f2f8;
-  font-family: "Ballet", serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 1.2rem;
   color: #5a4a63;
   cursor: pointer;
@@ -131,7 +131,7 @@ main {
 
 .recipe-title a {
   font-family: "Ballet", serif;
-  font-size: 1.8rem;
+  font-size: 3rem;
   color: #3a2e3f;
   text-decoration: none;
 }
