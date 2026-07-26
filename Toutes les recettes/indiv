@@ -46,6 +46,15 @@
 
         const article = document.createElement('article');
         article.className = 'recipe-card';
+        
+  if (recette.image) {
+  const img = document.createElement('img');
+  img.src = recette.image;
+  img.alt = recette.titre;
+  img.className = 'recipe-image';
+  article.appendChild(img);
+}
+
 
         const titre = document.createElement('h2');
         titre.textContent = recette.titre;
