@@ -100,8 +100,8 @@ main {
 .search-bar input {
   width: 100%;
   padding: 12px;
-  font-family: 'Ballet', cursive;
-  font-size: 1rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.5rem;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
@@ -128,10 +128,56 @@ main {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.filters button:hover {
-  background: #e8e0ee;
-  color: #2e2533;
+.filters button {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
+
+/* Toutes */
+.filters button[data-cat="all"] {
+  background: #f0f0f0;
+  color: #555;
+}
+
+/* Chaud — rouge pastel */
+.filters button[data-cat="chaud"] {
+  background: #ffe5e8;
+  color: #b84a55;
+}
+
+/* Froid — kaki pastel */
+.filters button[data-cat="froid"] {
+  background: #eef3e8;
+  color: #6b7a55;
+}
+
+/* Sucré — rose pastel */
+.filters button[data-cat="sucre"] {
+  background: #fce8f1;
+  color: #a45c7a;
+}
+
+/* Base — beige pastel */
+.filters button[data-cat="base"] {
+  background: #f7f3e8;
+  color: #8a7b5c;
+}
+
+/* Sauce — ivoire */
+.filters button[data-cat="sauce"] {
+  background: #fff8e6;
+  color: #8a7440;
+}
+
+.filters button:hover {
+  opacity: 0.7;
+}
+
 
 .no-recipes {
   font-family: "Ballet", serif;
