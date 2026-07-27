@@ -133,6 +133,16 @@ main {
 /* ============================
    CARTES DE RECETTES
    ============================ */
+.recipe-thumb {
+  width: 100%;        /* pleine largeur de la colonne */
+  height: auto;       /* proportions respectées */
+  display: block;     /* évite les espaces parasites */
+  margin: 15px 0;     /* espace propre autour */
+  border: none;       /* aucun style */
+  box-shadow: none;   /* aucune ombre */
+  object-fit: cover;  /* cadrage propre */
+}
+
 
 .recipe-card {
   background: #faf7fb;
