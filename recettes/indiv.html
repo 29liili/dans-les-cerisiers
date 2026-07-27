@@ -25,15 +25,11 @@
 
     <h2 id="recette-titre" class="page-title"></h2>
 
-    <!-- Image pleine largeur -->
-    <img id="recette-image" class="recipe-thumb" alt="Image de la recette">
-
     <p id="recette-categorie" class="recipe-category"></p>
     <p id="recette-description" class="recipe-description"></p>
+    <img id="recette-image" class="recipe-thumb" alt="Image de la recette">
+    <ol id="recette-etapes" class="recipe-steps"></ol>
 
-    <h3>Étapes</h3>
-    <h3>      </h3>
-    <ol id="recette-etapes"></ol>
 
   </main>
 
@@ -67,8 +63,8 @@
         document.getElementById("recette-titre").textContent = recette.titre;
         
         // Catégorie
-        document.getElementById("recette-categorie").textContent =
-          "Catégorie : " + recette.categorie;
+        document.getElementById("recette-categorie").textContent =recette.categorie;
+          
 
         // Image
         const img = document.getElementById("recette-image");
