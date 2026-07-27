@@ -161,16 +161,47 @@ main {
 ============================ */
 
 .recipe-category {
-  display: block;
-  text-align: left;
-  background: #f0e6f5;
-  padding: 4px 10px;
+  display: inline-block;
+  padding: 4px 12px;
   border-radius: 12px;
   font-size: 0.75rem;
-  margin-top: 0.5rem;
   font-weight: 600;
-  color: #8b6f92;
-  margin: 0 auto 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+/* Chaud — rouge pastel */
+.recipe-category.chaud {
+  background: #ffe5e8;
+  color: #b84a55;
+  border: 1px solid #ffd6da;
+}
+
+/* Froid — kaki pastel */
+.recipe-category.froid {
+  background: #eef3e8;
+  color: #6b7a55;
+  border: 1px solid #e2e8d9;
+}
+
+/* Sucré — rose pastel */
+.recipe-category.sucre {
+  background: #fce8f1;
+  color: #a45c7a;
+  border: 1px solid #f7d9e8;
+}
+
+/* Base — beige pastel */
+.recipe-category.base {
+  background: #f7f3e8;
+  color: #8a7b5c;
+  border: 1px solid #e9e2d3;
+}
+
+/* Sauce — ivoire */
+.recipe-category.sauce {
+  background: #fff8e6;
+  color: #8a7440;
+  border: 1px solid #f7eccc;
 }
 
 /* ============================
