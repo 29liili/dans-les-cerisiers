@@ -63,8 +63,11 @@
         document.getElementById("recette-titre").textContent = recette.titre;
         
         // Catégorie
-        document.getElementById("recette-categorie").textContent =recette.categorie;
-          
+        const categorieElement = document.getElementById("recette-categorie");
+        categorieElement.textContent = recette.categorie;
+        categorieElement.classList.add(recette.categorie);
+
+  
 
         // Image
         const img = document.getElementById("recette-image");
