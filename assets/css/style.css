@@ -78,13 +78,15 @@ main {
   margin-bottom: 2rem;
 }
 
-/* Bouton retour */
 .back-button {
-  display: inline-block;
-  margin: 10px 0 20px;
+  display: block;          /* occupe toute la ligne */
+  text-align: center;      /* texte centré */
+  margin: 10px auto 25px;  /* centré dans la colonne */
   font-size: 1rem;
   text-decoration: none;
   color: black;
+}
+
 }
 
 /* ============================
