@@ -105,10 +105,10 @@
               img.className = 'recipe-thumb';
             }
 
-            /* Catégorie */
-            const categorieEl = document.createElement('p');
-            categorieEl.className = 'recipe-category';
-            categorieEl.textContent = recette.categorie;
+            // Catégorie
+            const categorieElement = document.getElementById("recette-categorie");
+            categorieElement.textContent = recette.categorie;
+            categorieElement.classList.add(recette.categorie);
 
             /* Ordre demandé */
             article.appendChild(titre);
