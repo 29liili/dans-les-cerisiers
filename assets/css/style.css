@@ -1,14 +1,13 @@
 /* ============================
    CHARTE GRAPHIQUE - Dans les cerisiers
-   ============================ */
+============================ */
 
-/* Polices */
 @import url('https://fonts.googleapis.com/css2?family=Ballet&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 /* ============================
    RESET & BASE
-   ============================ */
+============================ */
 
 * {
   margin: 0;
@@ -25,7 +24,7 @@ html, body {
 
 /* ============================
    HEADER
-   ============================ */
+============================ */
 
 header {
   background-color: white;
@@ -43,7 +42,6 @@ header h1 {
   font-family: 'Ballet', cursive;
   font-size: 3rem;
   color: black;
-  margin: 0;
 }
 
 nav {
@@ -66,7 +64,7 @@ nav a:hover {
 
 /* ============================
    MAIN
-   ============================ */
+============================ */
 
 main {
   width: min(800px, 90%);
@@ -80,22 +78,36 @@ main {
   margin-bottom: 2rem;
 }
 
+/* Bouton retour */
+.back-button {
+  display: inline-block;
+  margin: 10px 0 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
 /* ============================
-   FILTRES
-   ============================ */
+   BARRE DE RECHERCHE
+============================ */
+
 .search-bar {
-  text-align: center;
+  width: 100%;
   margin: 20px 0;
 }
 
-#search {
-  width: 80%;
-  max-width: 400px;
-  padding: 10px 14px;
+.search-bar input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  box-sizing: border-box;
 }
+
+/* ============================
+   FILTRES
+============================ */
 
 .filters {
   margin-bottom: 2rem;
@@ -109,7 +121,6 @@ main {
   border-radius: 10px;
   border: none;
   background: #f6f2f8;
-  font-family: 'Manrope', sans-serif;
   font-size: 1.2rem;
   color: #5a4a63;
   cursor: pointer;
@@ -132,17 +143,7 @@ main {
 
 /* ============================
    CARTES DE RECETTES
-   ============================ */
-.recipe-thumb {
-  width: 100%;        /* pleine largeur de la colonne */
-  height: auto;       /* proportions respectées */
-  display: block;     /* évite les espaces parasites */
-  margin: 15px 0;     /* espace propre autour */
-  border: none;       /* aucun style */
-  box-shadow: none;   /* aucune ombre */
-  object-fit: cover;  /* cadrage propre */
-}
-
+============================ */
 
 .recipe-card {
   background: #faf7fb;
@@ -179,9 +180,20 @@ main {
   margin-bottom: 1rem;
 }
 
+/* Images */
+.recipe-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 15px 0;
+  border: none;
+  box-shadow: none;
+  object-fit: cover;
+}
+
 /* ============================
    FOOTER
-   ============================ */
+============================ */
 
 footer {
   text-align: center;
@@ -197,19 +209,108 @@ footer {
 }
 
 /* ============================
-   RESPONSIVE
-   ============================ */
+   RESPONSIVE - MOBILE OPTIMISÉ
+============================ */
 
 @media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    padding: 1.5rem 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
   header h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   nav {
     gap: 1rem;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
+  /* MAIN */
+  main {
+    width: 95%;
+    padding: 0 1rem;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  /* BOUTON RETOUR */
+  .back-button {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* BARRE DE RECHERCHE */
+  .search-bar input {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  /* FILTRES */
+  .filters {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .filters button {
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  /* CARTES RECETTES */
+  .recipe-card {
+    padding: 1.2rem;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
   }
 
   .recipe-title a {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .recipe-description {
+    font-size: 0.95rem;
+  }
+
+  .recipe-category {
+    font-size: 0.85rem;
+    padding: 3px 8px;
+  }
+
+  /* IMAGES */
+  .recipe-thumb {
+    margin: 12px 0;
+    border-radius: 10px;
+  }
+
+  /* LISTES */
+  ul, ol {
+    padding-left: 18px;
+    font-size: 0.95rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+  }
+
+  .footer-logo {
+    width: 90px;
   }
 }
