@@ -65,7 +65,8 @@
       "Faire un roux blanc : dans une casserole, faire fondre <strong>80 g de beurre demi-sel</strong>. À feu doux, ajouter <strong>80 g de farine</strong> et cuire sans coloration.",
       "Hors du feu, verser <strong>1 L de lait entier froid</strong> sur le roux. Remettre à chauffer en mélangeant. Après ébullition et épaississement, laisser cuire encore <strong>2 min</strong>.",
       "Assaisonner avec <strong>sel</strong>, <strong>poivre blanc</strong> et <strong>noix de muscade</strong>.",
-      "image": "../assets/images/recettes/bechamel 2.png",
+      
+      "<strong>Variantes:</strong>",
       "<strong>Sauce Mornay</strong> : béchamel + gruyère.",
       "<strong>Sauce Nantua</strong> : béchamel + crème + beurre d’écrevisse.",
       "<strong>Sauce Crème</strong> : béchamel avec 50 cl de lait + 50 cl de crème + encore de la crème.",
@@ -79,14 +80,22 @@
     "titre": "Pâtes fraîches",
     "categorie": "chaud",
     "image": "../assets/images/recettes/pate fraiche.jpg",
-    "description": "Deux préparations traditionnelles : les pâtes classiques et la pâte à ravioles.",
+    "description": "",
     "etapes": [
-      "PÂTES CLASSIQUES : Mélanger <strong>425 g de semoule extra-fine</strong> + <strong>125 g de farine 00 ou T45</strong> + <strong>6 jaunes</strong> + <strong>3 œufs</strong> + <strong>10 g de sel</strong>.",
+      "Mélanger <strong>425 g de semoule extra-fine</strong> + <strong>125 g de farine 00 ou T45</strong> + <strong>6 jaunes</strong> + <strong>3 œufs</strong> + <strong>10 g de sel</strong>.",
       "Former une boule homogène et laisser reposer au frigo pendant <strong>6 h</strong>.",
       "Étaler et façonner les pâtes.",
       "Cuire dans une eau bouillante salée environ <strong>2 à 3 min</strong> selon l’épaisseur.",
-      "image": "../assets/images/recettes/pate fraiche.jpg"
-      "PÂTE À RAVIOLES : Mélanger <strong>500 g de farine 00 ou T45</strong> + <strong>5 œufs</strong> + <strong>30 g d’huile d’olive</strong> + <strong>10 g de sel</strong>.",
+    ]
+  }
+  {
+    "id": "pate-raviole",
+    "titre": "Pâte à ravioles",
+    "categorie": "chaud",
+    "image": "../assets/images/recettes/pate à ravioles.jpg",
+    "description": "",
+    "etapes": [ 
+      "Mélanger <strong>500 g de farine 00 ou T45</strong> + <strong>5 œufs</strong> + <strong>30 g d’huile d’olive</strong> + <strong>10 g de sel</strong>.",
       "Former une boule homogène et laisser reposer au frigo pendant <strong>2 h</strong>.",
       "Étaler la pâte à <strong>2 mm</strong> au laminoir. Façonner les ravioles en évitant que les bandeaux de pâte ne sèchent.",
       "Cuire délicatement dans une eau bouillante salée environ <strong>2 à 3 min</strong>."
