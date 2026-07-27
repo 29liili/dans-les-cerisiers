@@ -68,34 +68,28 @@
 
         // Remplissage des éléments
         document.getElementById("recette-titre").textContent = recette.titre;
+        
+        // Catégorie
+        document.getElementById("recette-categorie").textContent =
+          "Catégorie : " + recette.categorie;
 
         // Image
         const img = document.getElementById("recette-image");
         img.src = recette.image;
         img.alt = recette.titre;
 
-        // Catégorie
-        document.getElementById("recette-categorie").textContent =
-          "Catégorie : " + recette.categorie;
-
         // Description
         document.getElementById("recette-description").textContent =
           recette.description;
 
-        // Ingrédients
-        const ingList = document.getElementById("recette-ingredients");
-        recette.ingredients.forEach(ing => {
-          const li = document.createElement("li");
-          li.textContent = ing;
-          ingList.appendChild(li);
-        });
-
         // Étapes
         const etapesList = document.getElementById("recette-etapes");
         recette.etapes.forEach(etape => {
-          const li = document.createElement("li");
-          li.textContent = etape;
-          etapesList.appendChild(li);
+        const li = document.createElement("li");
+        li.innerHTML = etape;   // <-- CORRECTION ICI
+        etapesList.appendChild(li);
+
+
         });
 
       });
