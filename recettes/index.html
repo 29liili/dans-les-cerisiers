@@ -105,18 +105,19 @@
               img.className = 'recipe-thumb';
             }
 
-            // Catégorie
-            const categorieElement = document.getElementById("recette-categorie");
-            categorieElement.textContent = recette.categorie;
-            categorieElement.classList.add(recette.categorie);
+            /* Catégorie */
+const categorieElement = document.createElement('span');
+categorieElement.className = 'recipe-category';
+categorieElement.textContent = recette.categorie;
+categorieElement.classList.add(recette.categorie);
 
-            /* Ordre demandé */
-            article.appendChild(titre);
-            article.appendChild(description);
-            if (img) article.appendChild(img);
-            article.appendChild(categorieEl);
+/* Ordre demandé */
+article.appendChild(titre);
+article.appendChild(description);
+article.appendChild(categorieElement);
 
-            container.appendChild(article);
+container.appendChild(article);
+
           });
         }
 
