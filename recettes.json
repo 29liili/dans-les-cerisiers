@@ -3,6 +3,7 @@
     "id": "bearnaise",
     "titre": "Sauce Béarnaise",
     "categorie": "sauce",
+    "image": "../assets/images/recettes/bearnaise.jpg",
     "description": "Sauce émulsionnée chaude incontournable de la cuisine française.",
     "etapes": [
       "Laver et effeuiller du <strong>cerfeuil</strong>, de l’<strong>estragon</strong> et du <strong>persil</strong>. Réserver les tiges et hacher les feuilles.",
@@ -16,6 +17,7 @@
     "id": "flan-patissier",
     "titre": "Flan pâtissier",
     "categorie": "sucré",
+    "image": "../assets/images/recettes/flan patissier.png",
     "description": "On devrait normalement appeler cette pâtisserie « flan parisien », car le véritable flan pâtissier ne contient pas de pâte. Son origine remonte au 13e siècle dans la région d’Amiens, sous le nom de dariole.",
     "etapes": [
       "Pour un cercle de <strong>Ø16 cm</strong>.",
@@ -42,6 +44,7 @@
     "id": "clafoutis-cerises",
     "titre": "Clafoutis aux cerises",
     "categorie": "sucré",
+    "image": "../assets/images/recettes/clafoutis.png",
     "description": "Originaire du Limousin, popularisé au XIXe siècle, le clafoutis est devenu un classique familial du début de l’été.",
     "etapes": [
       "Préchauffer le four à <strong>190°C</strong>.",
@@ -56,11 +59,13 @@
     "id": "bechamel",
     "titre": "Sauce Béchamel",
     "categorie": "sauce",
+    "image": "../assets/images/recettes/béchamel.png",
     "description": "Base incontournable de la cuisine française, perfectionnée par Louis de Béchameil mais inventée par le chef La Varenne.",
     "etapes": [
       "Faire un roux blanc : dans une casserole, faire fondre <strong>80 g de beurre demi-sel</strong>. À feu doux, ajouter <strong>80 g de farine</strong> et cuire sans coloration.",
       "Hors du feu, verser <strong>1 L de lait entier froid</strong> sur le roux. Remettre à chauffer en mélangeant. Après ébullition et épaississement, laisser cuire encore <strong>2 min</strong>.",
       "Assaisonner avec <strong>sel</strong>, <strong>poivre blanc</strong> et <strong>noix de muscade</strong>.",
+      "image": "../assets/images/recettes/bechamel 2.png",
       "<strong>Sauce Mornay</strong> : béchamel + gruyère.",
       "<strong>Sauce Nantua</strong> : béchamel + crème + beurre d’écrevisse.",
       "<strong>Sauce Crème</strong> : béchamel avec 50 cl de lait + 50 cl de crème + encore de la crème.",
@@ -73,12 +78,14 @@
     "id": "pates-fraiches",
     "titre": "Pâtes fraîches",
     "categorie": "chaud",
+    "image": "../assets/images/recettes/pate fraiche.jpg",
     "description": "Deux préparations traditionnelles : les pâtes classiques et la pâte à ravioles.",
     "etapes": [
       "PÂTES CLASSIQUES : Mélanger <strong>425 g de semoule extra-fine</strong> + <strong>125 g de farine 00 ou T45</strong> + <strong>6 jaunes</strong> + <strong>3 œufs</strong> + <strong>10 g de sel</strong>.",
       "Former une boule homogène et laisser reposer au frigo pendant <strong>6 h</strong>.",
       "Étaler et façonner les pâtes.",
       "Cuire dans une eau bouillante salée environ <strong>2 à 3 min</strong> selon l’épaisseur.",
+      "image": "../assets/images/recettes/pate fraiche.jpg"
       "PÂTE À RAVIOLES : Mélanger <strong>500 g de farine 00 ou T45</strong> + <strong>5 œufs</strong> + <strong>30 g d’huile d’olive</strong> + <strong>10 g de sel</strong>.",
       "Former une boule homogène et laisser reposer au frigo pendant <strong>2 h</strong>.",
       "Étaler la pâte à <strong>2 mm</strong> au laminoir. Façonner les ravioles en évitant que les bandeaux de pâte ne sèchent.",
