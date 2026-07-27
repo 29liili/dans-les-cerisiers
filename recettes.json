@@ -16,7 +16,7 @@
   {
     "id": "flan-patissier",
     "titre": "Flan pâtissier",
-    "categorie": "sucré",
+    "categorie": "sucre",
     "image": "../assets/images/flan-patissier.png",
     "description": "On devrait normalement appeler cette pâtisserie « flan parisien », car le véritable flan pâtissier ne contient pas de pâte. Son origine remonte au 13e siècle dans la région d’Amiens, sous le nom de dariole.",
     "etapes": [
@@ -43,7 +43,7 @@
   {
     "id": "clafoutis-cerises",
     "titre": "Clafoutis aux cerises",
-    "categorie": "sucré",
+    "categorie": "sucre",
     "image": "../assets/images/clafoutis.png",
     "description": "Originaire du Limousin, popularisé au XIXe siècle, le clafoutis est devenu un classique familial du début de l’été.",
     "etapes": [
