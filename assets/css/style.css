@@ -167,8 +167,14 @@ main {
 }
 
 .recipe-description {
-  margin: 1rem 0;
-  color: #4a3f4f;
+  font-size: 0.95rem;           /* plus petit */
+  color: #6d6d6d;               /* gris doux */
+  background: #f7f5f9;          /* pastel très léger */
+  padding: 12px 16px;           /* respiration */
+  border-radius: 10px;          /* arrondi fin */
+  border: 1px solid #ece8f1;    /* contour subtil */
+  margin: 1.2rem 0;             /* espace propre */
+  line-height: 1.55;            /* lisibilité */
 }
 
 .recipe-category {
@@ -176,7 +182,7 @@ main {
   background: #f0e6f5;
   padding: 4px 10px;
   border-radius: 12px;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #8b6f92;
   margin-bottom: 1rem;
