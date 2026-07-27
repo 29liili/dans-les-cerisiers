@@ -230,15 +230,19 @@ main {
 }
 
 .recipe-title a {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-family: 'Ballet', cursive;
+  font-size: 2.4rem;
   color: #3a2e3f;
   text-decoration: none;
 }
 
 .recipe-title a:hover {
   opacity: 0.7;
+}
+#recette-titre {
+  font-family: 'Ballet', cursive;
+  font-size: 3rem;
+  text-align: center;
 }
 
 /* ============================
