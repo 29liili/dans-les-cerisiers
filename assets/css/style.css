@@ -166,7 +166,8 @@ main {
   background: #f0e6f5;
   padding: 4px 10px;
   border-radius: 12px;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
   font-weight: 600;
   color: #8b6f92;
   margin: 0 auto 1rem;
@@ -190,15 +191,16 @@ main {
 
 .recipe-card {
   background: #faf7fb;
-  padding: 1.5rem;
-  border-radius: 18px;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
 }
 
 .recipe-title a {
-  font-family: "Ballet", serif;
-  font-size: 3rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: #3a2e3f;
   text-decoration: none;
 }
