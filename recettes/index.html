@@ -22,7 +22,7 @@
 
   <main>
 
-    <h2 class="page-title">Toutes les recettes</h2>
+    <h2 class="page-title">Répertoire de recettes</h2>
     
     <!-- Barre de recherche -->
     <div class="search-bar">
@@ -51,7 +51,7 @@
     <p>&copy; 2026 Dans les cerisiers. Tous droits réservés.</p>
   </footer>
 
-  <!-- SCRIPT COMPLET ET CORRIGÉ -->
+  <!-- SCRIPT COMPLET -->
   <script>
 
     /* Fonction pour retirer les accents */
@@ -82,6 +82,7 @@
             const article = document.createElement('article');
             article.className = 'recipe-card';
 
+            /* Titre */
             const titre = document.createElement('h3');
             titre.className = 'recipe-title';
 
@@ -90,10 +91,21 @@
             lien.textContent = recette.titre;
             titre.appendChild(lien);
 
+            /* Image sous le titre */
+            if (recette.image) {
+              const img = document.createElement('img');
+              img.src = recette.image;
+              img.alt = recette.titre;
+              img.className = 'recipe-thumb';
+              article.appendChild(img);
+            }
+
+            /* Description */
             const description = document.createElement('p');
             description.className = 'recipe-description';
             description.textContent = recette.description;
 
+            /* Catégorie */
             const categorieEl = document.createElement('p');
             categorieEl.className = 'recipe-category';
             categorieEl.textContent = recette.categorie;
