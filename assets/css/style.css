@@ -40,7 +40,7 @@ header {
 
 header h1 {
   font-family: 'Ballet', cursive;
-  font-size: 3.2rem;
+  font-size: 2.4rem;
   color: black;
 }
 
@@ -83,7 +83,7 @@ main {
   display: block;
   text-align: left;
   margin: 10px auto 25px;
-  font-size: 1rem;
+  font-size: 0.7rem;
   text-decoration: none;
   color: black;
 }
@@ -162,7 +162,7 @@ main {
 
 .recipe-category {
   display: block;
-  text-align: center;
+  text-align: left;
   background: #f0e6f5;
   padding: 4px 10px;
   border-radius: 12px;
