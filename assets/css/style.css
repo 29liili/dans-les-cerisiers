@@ -257,10 +257,9 @@ main {
 
 .recipe-thumb {
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 15px 0;
+  aspect-ratio: 1024 / 584;
   object-fit: cover;
+  margin: 15px 0;
 }
 
 /* ============================
