@@ -69,57 +69,55 @@
 
         /* Affichage des recettes */
         function afficherRecettes(categorie) {
-  container.innerHTML = '';
+          container.innerHTML = '';
 
-  const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
+          const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
 
-  if (liste.length === 0) {
-    container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
-    return;
-  }
+          if (liste.length === 0) {
+            container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
+            return;
+          }
 
-  liste.forEach(recette => {
-    const article = document.createElement('article');
-    article.className = 'recipe-card';
+          liste.forEach(recette => {
+            const article = document.createElement('article');
+            article.className = 'recipe-card';
 
-    /* Titre */
-    const titre = document.createElement('h3');
-    titre.className = 'recipe-title';
+            /* Titre */
+            const titre = document.createElement('h3');
+            titre.className = 'recipe-title';
 
-    const lien = document.createElement('a');
-    lien.href = `indiv.html?id=${recette.id}`;
-    lien.textContent = recette.titre;
-    titre.appendChild(lien);
+            const lien = document.createElement('a');
+            lien.href = `indiv.html?id=${recette.id}`;
+            lien.textContent = recette.titre;
+            titre.appendChild(lien);
 
-    /* Description */
-    const description = document.createElement('p');
-    description.className = 'recipe-description';
-    description.textContent = recette.description;
+            /* Description */
+            const description = document.createElement('p');
+            description.className = 'recipe-description';
+            description.textContent = recette.description;
 
-    /* Image pleine largeur */
-    let img = null;
-    if (recette.image) {
-      img = document.createElement('img');
-      img.src = recette.image;
-      img.alt = recette.titre;
-      img.className = 'recipe-thumb';
-    }
+            /* Image pleine largeur */
+            let img = null;
+            if (recette.image) {
+              img = document.createElement('img');
+              img.src = recette.image;
+              img.alt = recette.titre;
+              img.className = 'recipe-thumb';
+            }
 
-    /* Catégorie */
-    const categorieEl = document.createElement('p');
-    categorieEl.className = 'recipe-category';
-    categorieEl.textContent = recette.categorie;
+            /* Catégorie */
+            const categorieEl = document.createElement('p');
+            categorieEl.className = 'recipe-category';
+            categorieEl.textContent = recette.categorie;
 
-    /* Ordre demandé */
-    article.appendChild(titre);
-    article.appendChild(description);
-    if (img) article.appendChild(img);
-    article.appendChild(categorieEl);
+            /* Ordre demandé */
+            article.appendChild(titre);
+            article.appendChild(description);
+            if (img) article.appendChild(img);
+            article.appendChild(categorieEl);
 
-    container.appendChild(article);
-  });
-}
-
+            container.appendChild(article);
+          });
         }
 
         /* Affichage initial */
