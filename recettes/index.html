@@ -22,104 +22,95 @@
 
   <main>
 
-    <h2 class="page-title">Répertoire de recettes</h2>
-  
-    <div class="search-and-add">
+  <h2 class="page-title">Répertoire de recettes</h2>
+
+  <div class="search-and-add">
     <input type="text" id="search" placeholder="Rechercher une recette...">
     <button id="add-recipe-btn" class="add-recipe-btn">+</button>
-    </div>
-
-
-    <!-- Filtres -->
-    <div class="filters">
-  <button data-cat="all">toutes</button>
-  <button data-cat="chaud">chaud</button>
-  <button data-cat="froid">froid</button>
-  <button data-cat="sucre">sucré</button>
-  <button data-cat="base">base</button>
-  <button data-cat="sauce">sauce</button>
-</div>
-
-
-    <!-- Conteneur des recettes -->
-    <section id="recettes"></section>
-<form id="add-recipe-form" class="add-recipe-form" style="display:none;">
-
-  <h3>Ajouter une recette</h3>
-
-  <label>Titre</label>
-  <input type="text" id="new-title" required>
-
-  <label>Catégorie</label>
-  <select id="new-category" required>
-    <option value="chaud">Chaud</option>
-    <option value="froid">Froid</option>
-    <option value="sucre">Sucré</option>
-    <option value="base">Base</option>
-    <option value="sauce">Sauce</option>
-  </select>
-
-  <label>Description</label>
-  <textarea id="new-description" required></textarea>
-
-  <!-- INGREDIENTS -->
-  <label>Ingrédients</label>
-  <div id="ingredients-container">
-    <div class="ingredient-row">
-      <input type="text" class="ingredient-input" placeholder="Ingrédient 1" required>
-      <button type="button" class="delete-btn">🗑</button>
-    </div>
-  </div>
-  <button type="button" id="add-ingredient-btn" class="add-etape-btn">+ Ajouter un ingrédient</button>
-
-  <!-- ETAPES -->
-  <label>Étapes</label>
-  <div id="etapes-container">
-    <div class="etape-row">
-      <input type="text" class="etape-input" placeholder="Étape 1" required>
-      <button type="button" class="delete-btn">🗑</button>
-    </div>
-  </div>
-  <button type="button" id="add-etape-btn" class="add-etape-btn">+ Ajouter une étape</button>
-
-  <!-- IMAGE -->
-  <label>URL de l’image</label>
-  <input type="text" id="new-image">
-
-  <button type="submit">Créer la recette</button>
-</form>
-<div id="preview" class="preview-card" style="display:none;">
-  <h3 id="preview-title"></h3>
-  <span id="preview-category" class="recipe-category"></span>
-  <img id="preview-image" class="recipe-thumb" alt="Prévisualisation image">
-
-  <h4>Ingrédients</h4>
-  <ul id="preview-ingredients"></ul>
-
-  <h4>Étapes</h4>
-  <ol id="preview-etapes"></ol>
-</div>
-    <div id="form-overlay" class="form-overlay">
-      <div id="form-overlay" class="form-overlay">
-  
-  <button id="close-panel" class="close-panel">×</button>
-
-  <form id="add-recipe-form" class="add-recipe-form" style="display:none;">
-    <!-- ton formulaire -->
-  </form>
-
-  <div id="preview" class="preview-card" style="display:none;">
-    <!-- ta prévisualisation -->
   </div>
 
-</div>
+  <!-- Filtres -->
+  <div class="filters">
+    <button data-cat="all">toutes</button>
+    <button data-cat="chaud">chaud</button>
+    <button data-cat="froid">froid</button>
+    <button data-cat="sucre">sucré</button>
+    <button data-cat="base">base</button>
+    <button data-cat="sauce">sauce</button>
+  </div>
 
-  <form id="add-recipe-form" class="add-recipe-form" style="display:none;"></form>
-  <div id="preview" class="preview-card" style="display:none;"></div>
-</div>
+  <!-- Cartes de recettes -->
+  <section id="recettes"></section>
 
+  <!-- PANNEAU FLOTTANT -->
+  <div id="form-overlay" class="form-overlay">
 
-  </main>
+    <!-- Bouton fermeture -->
+    <button id="close-panel" class="close-panel">×</button>
+
+    <!-- FORMULAIRE -->
+    <form id="add-recipe-form" class="add-recipe-form" style="display:none;">
+
+      <h3>Ajouter une recette</h3>
+
+      <label>Titre</label>
+      <input type="text" id="new-title" required>
+
+      <label>Catégorie</label>
+      <select id="new-category" required>
+        <option value="chaud">Chaud</option>
+        <option value="froid">Froid</option>
+        <option value="sucre">Sucré</option>
+        <option value="base">Base</option>
+        <option value="sauce">Sauce</option>
+      </select>
+
+      <label>Description</label>
+      <textarea id="new-description" required></textarea>
+
+      <!-- INGREDIENTS -->
+      <label>Ingrédients</label>
+      <div id="ingredients-container">
+        <div class="ingredient-row">
+          <input type="text" class="ingredient-input" placeholder="Ingrédient 1" required>
+          <button type="button" class="delete-btn">🗑</button>
+        </div>
+      </div>
+      <button type="button" id="add-ingredient-btn" class="add-etape-btn">+ Ajouter un ingrédient</button>
+
+      <!-- ETAPES -->
+      <label>Étapes</label>
+      <div id="etapes-container">
+        <div class="etape-row">
+          <input type="text" class="etape-input" placeholder="Étape 1" required>
+          <button type="button" class="delete-btn">🗑</button>
+        </div>
+      </div>
+      <button type="button" id="add-etape-btn" class="add-etape-btn">+ Ajouter une étape</button>
+
+      <!-- IMAGE -->
+      <label>URL de l’image</label>
+      <input type="text" id="new-image">
+
+      <button type="submit">Créer la recette</button>
+    </form>
+
+    <!-- PRÉVISUALISATION -->
+    <div id="preview" class="preview-card" style="display:none;">
+      <h3 id="preview-title"></h3>
+      <span id="preview-category" class="recipe-category"></span>
+      <img id="preview-image" class="recipe-thumb" alt="Prévisualisation image">
+
+      <h4>Ingrédients</h4>
+      <ul id="preview-ingredients"></ul>
+
+      <h4>Étapes</h4>
+      <ol id="preview-etapes"></ol>
+    </div>
+
+  </div>
+
+</main>
 
   <footer>
     <img 
@@ -133,11 +124,16 @@
   <!-- SCRIPT COMPLET -->
   <script>
 
-    /* Fonction pour retirer les accents */
-    function sansAccents(str) {
-      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
-    
+    /* ============================
+   FONCTION : Retirer les accents
+============================ */
+function sansAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+/* ============================
+   OUVERTURE / FERMETURE PANNEAU FLOTTANT
+============================ */
 document.getElementById("add-recipe-btn").onclick = () => {
   const overlay = document.getElementById("form-overlay");
   const form = document.getElementById("add-recipe-form");
@@ -158,10 +154,12 @@ document.getElementById("add-recipe-btn").onclick = () => {
     setTimeout(() => {
       form.style.display = "none";
       preview.style.display = "none";
-    }, 350)
+    }, 350);
   }
 };
-    document.getElementById("close-panel").onclick = () => {
+
+/* Bouton de fermeture */
+document.getElementById("close-panel").onclick = () => {
   const overlay = document.getElementById("form-overlay");
   const form = document.getElementById("add-recipe-form");
   const preview = document.getElementById("preview");
@@ -175,7 +173,9 @@ document.getElementById("add-recipe-btn").onclick = () => {
   }, 350);
 };
 
-
+/* ============================
+   AJOUT INGREDIENTS / ETAPES
+============================ */
 document.getElementById("add-ingredient-btn").onclick = () => {
   const container = document.getElementById("ingredients-container");
   const row = document.createElement("div");
@@ -184,7 +184,7 @@ document.getElementById("add-ingredient-btn").onclick = () => {
   const input = document.createElement("input");
   input.type = "text";
   input.className = "ingredient-input";
-  input.placeholder = `Ingrédient`;
+  input.placeholder = "Ingrédient";
 
   const del = document.createElement("button");
   del.type = "button";
@@ -198,6 +198,7 @@ document.getElementById("add-ingredient-btn").onclick = () => {
 
   updatePreview();
 };
+
 document.getElementById("add-etape-btn").onclick = () => {
   const container = document.getElementById("etapes-container");
   const row = document.createElement("div");
@@ -206,7 +207,7 @@ document.getElementById("add-etape-btn").onclick = () => {
   const input = document.createElement("input");
   input.type = "text";
   input.className = "etape-input";
-  input.placeholder = `Étape`;
+  input.placeholder = "Étape";
 
   const del = document.createElement("button");
   del.type = "button";
@@ -219,7 +220,12 @@ document.getElementById("add-etape-btn").onclick = () => {
   container.appendChild(row);
 
   updatePreview();
-};function updatePreview() {
+};
+
+/* ============================
+   PRÉVISUALISATION
+============================ */
+function updatePreview() {
   const preview = document.getElementById("preview");
   preview.style.display = "block";
 
@@ -252,9 +258,13 @@ document.getElementById("add-etape-btn").onclick = () => {
     etList.appendChild(li);
   });
 }
+
 document.querySelectorAll("#add-recipe-form input, #add-recipe-form textarea, #add-recipe-form select")
   .forEach(el => el.addEventListener("input", updatePreview));
 
+/* ============================
+   EXPORT JSON
+============================ */
 document.getElementById("add-recipe-form").onsubmit = (e) => {
   e.preventDefault();
 
@@ -279,94 +289,79 @@ document.getElementById("add-recipe-form").onsubmit = (e) => {
   a.click();
 };
 
-    fetch('../recettes.json')
-      .then(response => response.json())
-      .then(recettes => {
+/* ============================
+   AFFICHAGE DES RECETTES
+============================ */
+fetch('../recettes.json')
+  .then(response => response.json())
+  .then(recettes => {
 
-        const container = document.getElementById('recettes');
-        const buttons = document.querySelectorAll('.filters button');
-        const searchInput = document.getElementById('search');
+    const container = document.getElementById('recettes');
+    const buttons = document.querySelectorAll('.filters button');
+    const searchInput = document.getElementById('search');
 
-        /* Affichage des recettes */
-        function afficherRecettes(categorie) {
-          container.innerHTML = '';
+    function afficherRecettes(categorie) {
+      container.innerHTML = '';
 
-          const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
+      const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
 
-          if (liste.length === 0) {
-            container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
-            return;
-          }
+      if (liste.length === 0) {
+        container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
+        return;
+      }
 
-          liste.forEach(recette => {
-            const article = document.createElement('article');
-            article.className = 'recipe-card';
+      liste.forEach(recette => {
+        const article = document.createElement('article');
+        article.className = 'recipe-card';
 
-            /* Titre */
-            const titre = document.createElement('h3');
-            titre.className = 'recipe-title';
+        const titre = document.createElement('h3');
+        titre.className = 'recipe-title';
 
-            const lien = document.createElement('a');
-            lien.href = `indiv.html?id=${recette.id}`;
-            lien.textContent = recette.titre;
-            titre.appendChild(lien);
+        const lien = document.createElement('a');
+        lien.href = `indiv.html?id=${recette.id}`;
+        lien.textContent = recette.titre;
+        titre.appendChild(lien);
 
-            /* Description */
-            const description = document.createElement('p');
-            description.className = 'recipe-description';
-            description.textContent = recette.description;
+        const description = document.createElement('p');
+        description.className = 'recipe-description';
+        description.textContent = recette.description;
 
-            /* Image pleine largeur */
-            let img = null;
-            if (recette.image) {
-              img = document.createElement('img');
-              img.src = recette.image;
-              img.alt = recette.titre;
-              img.className = 'recipe-thumb';
-            }
+        const categorieElement = document.createElement('span');
+        categorieElement.className = 'recipe-category';
+        categorieElement.textContent = recette.categorie;
+        categorieElement.classList.add(recette.categorie);
 
-            /* Catégorie */
-const categorieElement = document.createElement('span');
-categorieElement.className = 'recipe-category';
-categorieElement.textContent = recette.categorie;
-categorieElement.classList.add(recette.categorie);
+        article.appendChild(titre);
+        article.appendChild(description);
+        article.appendChild(categorieElement);
 
-/* Ordre demandé */
-article.appendChild(titre);
-article.appendChild(description);
-article.appendChild(categorieElement);
-
-container.appendChild(article);
-
-          });
-        }
-
-        /* Affichage initial */
-        afficherRecettes('all');
-
-        /* Filtres */
-        buttons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            afficherRecettes(btn.dataset.cat);
-          });
-        });
-
-        /* Recherche insensible aux accents */
-        searchInput.addEventListener('input', () => {
-          const query = sansAccents(searchInput.value.toLowerCase());
-          const articles = document.querySelectorAll('#recettes article');
-
-          articles.forEach(article => {
-            const titre = sansAccents(article.querySelector('.recipe-title').textContent.toLowerCase());
-            const description = sansAccents(article.querySelector('.recipe-description').textContent.toLowerCase());
-
-            const match = titre.includes(query) || description.includes(query);
-
-            article.style.display = match ? '' : 'none';
-          });
-        });
-
+        container.appendChild(article);
       });
+    }
+
+    afficherRecettes('all');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        afficherRecettes(btn.dataset.cat);
+      });
+    });
+
+    searchInput.addEventListener('input', () => {
+      const query = sansAccents(searchInput.value.toLowerCase());
+      const articles = document.querySelectorAll('#recettes article');
+
+      articles.forEach(article => {
+        const titre = sansAccents(article.querySelector('.recipe-title').textContent.toLowerCase());
+        const description = sansAccents(article.querySelector('.recipe-description').textContent.toLowerCase());
+
+        const match = titre.includes(query) || description.includes(query);
+
+        article.style.display = match ? '' : 'none';
+      });
+    });
+
+  });
   </script>
 
 </body>
