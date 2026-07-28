@@ -44,38 +44,51 @@
 
 </main>
   
-<div class="form-overlay" id="formOverlay">
+<div class="form-overlay" id="form-overlay">
 
-  <div class="add-recipe-form">
-    <button class="close-panel" id="closePanel">×</button>
+  <div class="add-recipe-form" id="add-recipe-form">
+    <button class="close-panel" id="close-panel">×</button>
 
     <h3>Ajouter une recette</h3>
 
-    <!-- Champs du formulaire -->
-    <label for="titre">Titre</label>
-    <input type="text" id="titre">
+    <label for="new-title">Titre</label>
+    <input type="text" id="new-title">
 
-    <label for="image">Image</label>
-    <input type="text" id="image">
+    <label for="new-image">Image</label>
+    <input type="text" id="new-image">
 
-    <label for="categorie">Catégorie</label>
-    <select id="categorie">
+    <label for="new-category">Catégorie</label>
+    <select id="new-category">
       <option value="sucre">Sucré</option>
       <option value="sale">Salé</option>
     </select>
 
-    <label>Description</label>
-    <textarea id="description"></textarea>
+    <label for="new-description">Description</label>
+    <textarea id="new-description"></textarea>
+
+    <h4>Ingrédients</h4>
+    <div id="ingredients-container"></div>
+    <button id="add-ingredient-btn" class="add-etape-btn">Ajouter un ingrédient</button>
+
+    <h4>Étapes</h4>
+    <div id="etapes-container"></div>
+    <button id="add-etape-btn" class="add-etape-btn">Ajouter une étape</button>
 
     <button type="submit">Publier</button>
   </div>
 
-  <div class="preview-card">
+  <div class="preview-card" id="preview">
     <h3 id="preview-title">Aperçu</h3>
     <img id="preview-image" src="" alt="">
     <p class="recipe-description" id="preview-description"></p>
+
+    <ul id="preview-ingredients"></ul>
+    <ol id="preview-etapes"></ol>
   </div>
+
 </div>
+
+  
   
   <footer>
     <img 
