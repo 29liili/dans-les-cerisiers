@@ -22,11 +22,27 @@
 
   <main>
 
-    <h2 class="page-title">Répertoire de recettes</h2>
+    <h2 class="page-title">🍒🍒🍒🍒🍒</h2>
 
-    <!-- Les recettes JSON seront injectées ici -->
-    <section id="recettes"></section>
-    
+<!-- Galerie Instagram -->
+<section class="instagram-section">
+  <h3 class="section-title">Sur Instagram</h3>
+
+  <div class="instagram-gallery">
+    <!-- Colle ici ton widget LightWidget ou SnapWidget -->
+    <iframe src="https://cdn.lightwidget.com/widgets/TON_WIDGET_ID.html"
+            scrolling="no"
+            allowtransparency="true"
+            class="lightwidget-widget"></iframe>
+  </div>
+</section>
+
+<!-- Dernières recettes -->
+<section class="latest-recipes">
+  <h3 class="section-title">Dernières recettes</h3>
+  <div id="latest-recipes-grid" class="recipes-grid"></div>
+</section>
+
   </main>
 
   <footer>
@@ -41,47 +57,39 @@
   <!-- Script pour charger les recettes JSON -->
   <script>
     fetch('recettes.json')
-      .then(response => response.json())
-      .then(recettes => {
-        const container = document.getElementById('recettes');
+  .then(res => res.json())
+  .then(recettes => {
 
-        recettes.forEach(recette => {
-          const article = document.createElement('article');
-          article.className = 'recipe-card';
+    // Trier par ID (Date.now)
+    const latest = recettes
+      .sort((a, b) => b.id - a.id)
+      .slice(0, 3);
 
-          const titre = document.createElement('h3');
-          titre.className = 'recipe-title';
-          titre.textContent = recette.titre;
+    const grid = document.getElementById('latest-recipes-grid');
 
-          const description = document.createElement('p');
-          description.className = 'recipe-description';
-          description.textContent = recette.description;
-         
-          const categorie = document.createElement('p');
-          categorie.className = 'recipe-category';
-          categorie.textContent = recette.categorie;
+    latest.forEach(r => {
+      const card = document.createElement('article');
+      card.className = 'recipe-card';
 
-          const etapesTitre = document.createElement('h4');
-          etapesTitre.textContent = 'Préparation';
+      const img = document.createElement('img');
+      img.src = r.image;
+      img.className = 'recipe-thumb';
 
-          const listeEtapes = document.createElement('ol');
-          listeEtapes.className = 'recipe-steps';
+      const title = document.createElement('h4');
+      title.textContent = r.titre;
+      title.style.fontFamily = 'Ballet, cursive';
 
-          recette.etapes.forEach(etape => {
-            const li = document.createElement('li');
-            li.innerHTML = etape; // garde les <strong>
-            listeEtapes.appendChild(li);
-          });
+      const cat = document.createElement('span');
+      cat.className = 'recipe-category ' + r.categorie;
+      cat.textContent = r.categorie;
 
-          article.appendChild(titre);
-          article.appendChild(description);
-          article.appendChild(categorie);
-          article.appendChild(etapesTitre);
-          article.appendChild(listeEtapes);
+      card.appendChild(img);
+      card.appendChild(title);
+      card.appendChild(cat);
 
-          container.appendChild(article);
-        });
-      });
+      grid.appendChild(card);
+    });
+  });
   </script>
 
 </body>
