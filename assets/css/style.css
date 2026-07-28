@@ -84,6 +84,7 @@ main {
 
 .search-and-add {
   display: flex;
+  width: 100%;
   align-items: center;
   margin: 20px 0;
 }
