@@ -84,36 +84,55 @@ main {
 
 .search-and-add {
   display: flex;
-  width: 100%;
   align-items: center;
+  width: 100%;
   margin: 20px 0;
 }
 
+/* Champ de recherche harmonisé */
 .search-and-add input {
   flex: 1;
-  padding: 12px;
-  font-size: 0.9rem;
-  border-radius: 10px 0 0 10px;
-  border: 1px solid #ccc;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 12px 0 0 12px;
+  background: #fff6f9;          /* même pastel que le bouton */
+  color: #5a4a63;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  outline: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
+.search-and-add input::placeholder {
+  color: #c9a8b6;               /* pastel doux */
+}
+
+/* Effet focus pastel */
+.search-and-add input:focus {
+  background: #ffeef5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Bouton + harmonisé */
 .add-recipe-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 0 10px 10px 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 0 12px 12px 0;
   border: none;
   background: #fff6f9;
   color: #d88aa3;
   font-size: 1.6rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
 }
 
+/* Hover pastel */
 .add-recipe-btn:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
   opacity: 0.85;
+  background: #ffeef5;
 }
 
 /* ============================
