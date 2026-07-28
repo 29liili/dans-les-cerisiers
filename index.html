@@ -46,13 +46,16 @@
 
   <!-- Script pour charger les recettes JSON -->
   <script>
-    fetch('../recettes.json')
+    fetch('recettes.json')
   .then(res => res.json())
   .then(recettes => {
 
-    const grid = document.getElementById('recipes-grid');
+    // Les trois dernières recettes publiées
+    const latest = recettes.slice(-3);
 
-    recettes.forEach(r => {
+    const grid = document.getElementById('latest-recipes-grid');
+
+    latest.forEach(r => {
       const card = document.createElement('article');
       card.className = 'recipe-card';
 
@@ -63,6 +66,7 @@
       const title = document.createElement('h4');
       title.textContent = r.titre;
       title.style.fontFamily = 'Ballet, cursive';
+      title.style.fontSize = '1.25rem';
 
       const cat = document.createElement('span');
       cat.className = 'recipe-category ' + r.categorie;
@@ -74,13 +78,14 @@
 
       // rendre la carte cliquable
       card.onclick = () => {
-        window.location.href = `./indiv.html?id=${r.id}`;
+        window.location.href = `./recettes/indiv.html?id=${r.id}`;
       };
       card.style.cursor = "pointer";
 
       grid.appendChild(card);
     });
   });
+
   </script>
 
 </body>
