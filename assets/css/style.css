@@ -84,14 +84,6 @@ main {
   color: #3a2e3f;
 }
 
-/* Instagram */
-.instagram-gallery iframe {
-  width: 100%;
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-}
-
 /* Grille des recettes */
 .recipes-grid {
   display: grid;
