@@ -101,4 +101,27 @@
       "Cuire délicatement dans une eau bouillante salée environ <strong>2 à 3 min</strong>."
     ]
   }
+  {
+  "id": 1785272936138,
+  "titre": "Cookies",
+  "categorie": "sucre",
+  "description": "Mes specialités gourmandes lol: -matcha, sarrasin et chocolat au lait.\n- Cacahouète, chocolat noir et fleur de sel.",
+  "image": "assets/images/cookie.png",
+  "ingredients": [
+    "<strong>250g de farine</strong>",
+    "<strong>90g de cassonade</strong>",
+    "<strong>1/2 sachet de levure chimique</strong>",
+    "<strong>sel</strong>",
+    "<strong>1 sachet de sucre vanillé</strong>",
+    "<strong>125g de beurre mou</strong>",
+    "<strong>1 oeuf battu</strong>",
+    "<strong>2c.c de miel</strong>"
+  ],
+  "etapes": [
+    "Mélanger les ingrédients sec, puis les liquides. Ajouter également les chocolat, fruits secs...",
+    "Former des boules de pâte égales, puis mettre à refroidir au frigo 30min.",
+    "Préchauffer le four à 190°c.",
+    "Cuire 9min, sur grille au bas du four. Laisser bien refroidir avant dégustation."
+  ]
+}
 ]
