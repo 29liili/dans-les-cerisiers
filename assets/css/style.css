@@ -187,6 +187,111 @@ main {
   margin-top: 2rem;
   opacity: 0.85;
 }
+/* ============================
+   FORMULAIRE
+============================ */
+.add-recipe-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: #fff6f9;
+  color: #d88aa3;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.add-recipe-btn:hover {
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+.add-recipe-form {
+  background: #faf7fb;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.add-recipe-form h3 {
+  font-family: 'Ballet', cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.add-recipe-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.add-recipe-form input,
+.add-recipe-form textarea,
+.add-recipe-form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+.add-recipe-form button[type="submit"] {
+  margin-top: 1.5rem;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+  background: #fff6f9;
+  color: #d88aa3;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.add-etape-btn {
+  margin-top: 1rem;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #fff6f9;
+  color: #d88aa3;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.delete-btn {
+  background: #ffe5e8;
+  color: #b84a55;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.ingredient-row,
+.etape-row {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.preview-card {
+  background: #faf7fb;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+#preview-title {
+  font-family: 'Ballet', cursive;
+  font-size: 2.4rem;
+}
+#preview-image {
+  margin: 1rem 0;
+  border-radius: 12px;
+}
+
+
+
 
 /* ============================
    DESCRIPTION (global)
