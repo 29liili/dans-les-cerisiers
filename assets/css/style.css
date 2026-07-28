@@ -87,52 +87,43 @@ main {
   align-items: center;
   width: 100%;
   margin: 20px 0;
+  background: #fff6f9;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  overflow: hidden; /* fusion visuelle */
 }
 
-/* Champ de recherche harmonisé */
+/* Champ de recherche capsule */
 .search-and-add input {
   flex: 1;
-  padding: 12px 14px;
+  padding: 14px 18px;
   font-size: 0.95rem;
   border: none;
-  border-radius: 12px 0 0 12px;
-  background: #fff6f9;          /* même pastel que le bouton */
+  background: transparent;
   color: #5a4a63;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   outline: none;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .search-and-add input::placeholder {
-  color: #c9a8b6;               /* pastel doux */
+  color: #c9a8b6;
 }
 
-/* Effet focus pastel */
-.search-and-add input:focus {
-  background: #ffeef5;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* Bouton + harmonisé */
+/* Bouton + capsule */
 .add-recipe-btn {
-  width: 48px;
-  height: 48px;
-  border-radius: 0 12px 12px 0;
+  width: 55px;
+  height: 55px;
   border: none;
-  background: #fff6f9;
+  background: transparent;
   color: #d88aa3;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Hover pastel */
 .add-recipe-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   opacity: 0.85;
-  background: #ffeef5;
 }
 
 /* ============================
