@@ -104,10 +104,20 @@ main {
   font-family: 'Ballet', cursive
 }
 .recipes-grid h4 {
-  font-size: 1.2rem; /* légèrement plus grand */
+  font-size: 1.8rem; /* légèrement plus grand */
   margin: 10px 0 5px;
+  text-align: left;
 }
-
+h3 {
+    display: block;
+    font-size: 2.5rem;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
 
 .recipes-grid {
   display: grid;
