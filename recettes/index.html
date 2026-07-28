@@ -99,6 +99,25 @@
   <h4>Étapes</h4>
   <ol id="preview-etapes"></ol>
 </div>
+    <div id="form-overlay" class="form-overlay">
+      <div id="form-overlay" class="form-overlay">
+  
+  <button id="close-panel" class="close-panel">×</button>
+
+  <form id="add-recipe-form" class="add-recipe-form" style="display:none;">
+    <!-- ton formulaire -->
+  </form>
+
+  <div id="preview" class="preview-card" style="display:none;">
+    <!-- ta prévisualisation -->
+  </div>
+
+</div>
+
+  <form id="add-recipe-form" class="add-recipe-form" style="display:none;"></form>
+  <div id="preview" class="preview-card" style="display:none;"></div>
+</div>
+
 
   </main>
 
@@ -120,17 +139,43 @@
     }
     
 document.getElementById("add-recipe-btn").onclick = () => {
+  const overlay = document.getElementById("form-overlay");
   const form = document.getElementById("add-recipe-form");
+  const preview = document.getElementById("preview");
 
-  if (form.style.display === "none" || form.style.display === "") {
+  const isOpen = overlay.classList.contains("show");
+
+  if (!isOpen) {
     form.style.display = "block";
-    setTimeout(() => form.classList.add("show"), 10);
+    preview.style.display = "block";
+
+    overlay.classList.add("show");
+    document.body.classList.add("modal-open");
   } else {
-    form.classList.remove("show");
-    setTimeout(() => form.style.display = "none", 300);
+    overlay.classList.remove("show");
+    document.body.classList.remove("modal-open");
+
+    setTimeout(() => {
+      form.style.display = "none";
+      preview.style.display = "none";
+    }, 350)
   }
 };
-    
+    document.getElementById("close-panel").onclick = () => {
+  const overlay = document.getElementById("form-overlay");
+  const form = document.getElementById("add-recipe-form");
+  const preview = document.getElementById("preview");
+
+  overlay.classList.remove("show");
+  document.body.classList.remove("modal-open");
+
+  setTimeout(() => {
+    form.style.display = "none";
+    preview.style.display = "none";
+  }, 350);
+};
+
+
 document.getElementById("add-ingredient-btn").onclick = () => {
   const container = document.getElementById("ingredients-container");
   const row = document.createElement("div");
