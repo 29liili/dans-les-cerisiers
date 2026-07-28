@@ -285,6 +285,13 @@ h3 {
 /* ============================
    PANNEAU FLOTTANT (FORM + PREVIEW)
 ============================ */
+body.modal-open main,
+body.modal-open header,
+body.modal-open footer {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
 
 .form-overlay {
   position: absolute;
