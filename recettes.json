@@ -3,7 +3,7 @@
     "id": "bearnaise",
     "titre": "Sauce Béarnaise",
     "categorie": "sauce",
-    "image": "/assets/images/bearnaise.jpg",
+    "image": "/dans-les-cerisiers/assets/images/bearnaise.jpg",
     "description": "Sauce émulsionnée semi-coagulée chaude incontournable de la cuisine française, elle fut inventée à Paris en 1837, par un chef du Pavillon Henri IV. Ce dernier, le roi Henri IV, était originaire de Pau, en Béarn, ce qui expliquerait le choix de l’appellation de la sauce.",
     "etapes": [
       "Laver et effeuiller du <strong>cerfeuil</strong>, de l’<strong>estragon</strong> et du <strong>persil</strong>. Réserver les tiges et hacher les feuilles.",
@@ -17,7 +17,7 @@
     "id": "flan-patissier",
     "titre": "Flan pâtissier",
     "categorie": "sucre",
-    "image": "/assets/images/flan-patissier.png",
+    "image": "/dans-les-cerisiers/assets/images/flan-patissier.png",
     "description": "On devrait normalement appeler cette pâtisserie « flan parisien », car le véritable flan pâtissier ne contient pas de pâte. Son origine remonte au 13e siècle dans la région d’Amiens, sous le nom de dariole.",
     "etapes": [
       "Pour un cercle de <strong>Ø16 cm</strong>.",
@@ -44,7 +44,7 @@
     "id": "clafoutis-cerises",
     "titre": "Clafoutis aux cerises",
     "categorie": "sucre",
-    "image": "/assets/images/clafoutis.png",
+    "image": "/dans-les-cerisiers/assets/images/clafoutis.png",
     "description": "Originaire du Limousin, c’est au XIXe siècle que la popularité du clafoutis le fait s’exporter dans les autres régions françaises. Déclinable avec de nombreux fruits, ce plat est dorénavant un classique de la cuisine familiale du début de l’été.",
     "etapes": [
       "Préchauffer le four à <strong>190°C</strong>.",
@@ -59,7 +59,7 @@
     "id": "bechamel",
     "titre": "Sauce Béchamel",
     "categorie": "sauce",
-    "image": "/assets/images/bechamel.png",
+    "image": "/dans-les-cerisiers/assets/images/bechamel.png",
     "description": "Dans la cuisine française, la sauce béchamel sert de base à de nombreuses sauces dérivées. Elle doit son nom à Louis de Béchameil, qui n’aurait fait que perfectionner une sauce inventée par le chef La Varenne. Ce dernier est l’auteur du premier livre de cuisine moderne (1651) qui codifie pour la première fois des principes et des méthodes culinaires. Cet ouvrage fut un vrai succès, il a été publié et utilisé pendant près de deux siècles.",
     "etapes": [
       "Faire un roux blanc : dans une casserole, faire fondre <strong>80 g de beurre demi-sel</strong>. À feu doux, ajouter <strong>80 g de farine</strong> et cuire sans coloration.",
@@ -78,7 +78,7 @@
     "id": "pates-fraiches",
     "titre": "Pâtes fraîches",
     "categorie": "chaud",
-    "image": "/assets/images/pate-fraiche.jpg",
+    "image": "/dans-les-cerisiers/assets/images/pate-fraiche.jpg",
     "description": "Des traces écrites de mélanges de farine et d'eau bouillis existent dès 2000 avant JC en Mésopotamie, tandis que les Romains consommaient déjà l'ancêtre des lasagnes. D'autres racontent que ce serait Marco Polo qui les aurait ramené de Chine",
     "etapes": [
       "Mélanger <strong>425 g de semoule extra-fine</strong> + <strong>125 g de farine 00 ou T45</strong> + <strong>6 jaunes</strong> + <strong>3 œufs</strong> + <strong>10 g de sel</strong>.",
@@ -92,7 +92,7 @@
     "id": "pate-raviole",
     "titre": "Pâte à ravioles",
     "categorie": "chaud",
-    "image": "/assets/images/pate-a-ravioles.jpg",
+    "image": "/dans-les-cerisiers/assets/images/pate-a-ravioles.jpg",
     "description": "Déclinables sous toutes les formes, on peut également les farcir de mille manières. En France, la célèbre raviole du dauphiné a obtenu une IGP, protégeant sa recette traditionnelle à base de comté, de tomme fraîche et de persil.",
     "etapes": [
       "Mélanger <strong>500 g de farine 00 ou T45</strong> + <strong>5 œufs</strong> + <strong>30 g d’huile d’olive</strong> + <strong>10 g de sel</strong>.",
