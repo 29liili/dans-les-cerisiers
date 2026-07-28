@@ -387,6 +387,18 @@ footer {
 /* ============================
    RESPONSIVE
 ============================ */
+/* Animation ouverture formulaire */
+.add-recipe-form {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Quand le formulaire est visible */
+.add-recipe-form.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media (max-width: 768px) {
 
