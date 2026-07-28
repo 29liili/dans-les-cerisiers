@@ -43,73 +43,40 @@
   <section id="recettes"></section>
 
 </main>
- <!-- PANNEAU FLOTTANT -->
-  <div id="form-overlay" class="form-overlay">
+  
+<div class="form-overlay" id="formOverlay">
 
-    <!-- Bouton fermeture -->
-    <button id="close-panel" class="close-panel">×</button>
+  <div class="add-recipe-form">
+    <button class="close-panel" id="closePanel">×</button>
 
-    <!-- FORMULAIRE -->
-    <form id="add-recipe-form" class="add-recipe-form" style="display:none;">
+    <h3>Ajouter une recette</h3>
 
-      <h3>Ajouter une recette</h3>
+    <!-- Champs du formulaire -->
+    <label for="titre">Titre</label>
+    <input type="text" id="titre">
 
-      <label>Titre</label>
-      <input type="text" id="new-title" required>
+    <label for="image">Image</label>
+    <input type="text" id="image">
 
-      <label>Catégorie</label>
-      <select id="new-category" required>
-        <option value="chaud">Chaud</option>
-        <option value="froid">Froid</option>
-        <option value="sucre">Sucré</option>
-        <option value="base">Base</option>
-        <option value="sauce">Sauce</option>
-      </select>
+    <label for="categorie">Catégorie</label>
+    <select id="categorie">
+      <option value="sucre">Sucré</option>
+      <option value="sale">Salé</option>
+    </select>
 
-      <label>Description</label>
-      <textarea id="new-description" required></textarea>
+    <label>Description</label>
+    <textarea id="description"></textarea>
 
-      <!-- INGREDIENTS -->
-      <label>Ingrédients</label>
-      <div id="ingredients-container">
-        <div class="ingredient-row">
-          <input type="text" class="ingredient-input" placeholder="Ingrédient 1" required>
-          <button type="button" class="delete-btn">🗑</button>
-        </div>
-      </div>
-      <button type="button" id="add-ingredient-btn" class="add-etape-btn">+ Ajouter un ingrédient</button>
-
-      <!-- ETAPES -->
-      <label>Étapes</label>
-      <div id="etapes-container">
-        <div class="etape-row">
-          <input type="text" class="etape-input" placeholder="Étape 1" required>
-          <button type="button" class="delete-btn">🗑</button>
-        </div>
-      </div>
-      <button type="button" id="add-etape-btn" class="add-etape-btn">+ Ajouter une étape</button>
-
-      <!-- IMAGE -->
-      <label>URL de l’image</label>
-      <input type="text" id="new-image">
-
-      <button type="submit">Créer la recette</button>
-    </form>
-
-    <!-- PRÉVISUALISATION -->
-    <div id="preview" class="preview-card" style="display:none;">
-      <h3 id="preview-title"></h3>
-      <span id="preview-category" class="recipe-category"></span>
-      <img id="preview-image" class="recipe-thumb" alt="Prévisualisation image">
-
-      <h4>Ingrédients</h4>
-      <ul id="preview-ingredients"></ul>
-
-      <h4>Étapes</h4>
-      <ol id="preview-etapes"></ol>
-    </div>
-
+    <button type="submit">Publier</button>
   </div>
+
+  <div class="preview-card">
+    <h3 id="preview-title">Aperçu</h3>
+    <img id="preview-image" src="" alt="">
+    <p class="recipe-description" id="preview-description"></p>
+  </div>
+</div>
+  
   <footer>
     <img 
       src="../assets/images/logo.png"
