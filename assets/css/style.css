@@ -304,6 +304,9 @@ body.modal-open footer {
   display: flex;
   gap: 20px;
   z-index: 100;
+  opacity: 0;            /* invisible quand fermé */
+  pointer-events: none;  /* ne bloque plus les boutons */
+
 }
 
 .form-overlay.show {
