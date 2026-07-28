@@ -23,7 +23,7 @@
   <main>
 
     <h2 class="page-title">Répertoire de recettes</h2>
-    
+    <button id="add-recipe-btn" class="add-recipe-btn">+</button>
     <!-- Barre de recherche -->
     <div class="search-bar">
       <input type="text" id="search" placeholder="Rechercher une recette...">
@@ -42,6 +42,62 @@
 
     <!-- Conteneur des recettes -->
     <section id="recettes"></section>
+<form id="add-recipe-form" class="add-recipe-form" style="display:none;">
+
+  <h3>Ajouter une recette</h3>
+
+  <label>Titre</label>
+  <input type="text" id="new-title" required>
+
+  <label>Catégorie</label>
+  <select id="new-category" required>
+    <option value="chaud">Chaud</option>
+    <option value="froid">Froid</option>
+    <option value="sucre">Sucré</option>
+    <option value="base">Base</option>
+    <option value="sauce">Sauce</option>
+  </select>
+
+  <label>Description</label>
+  <textarea id="new-description" required></textarea>
+
+  <!-- INGREDIENTS -->
+  <label>Ingrédients</label>
+  <div id="ingredients-container">
+    <div class="ingredient-row">
+      <input type="text" class="ingredient-input" placeholder="Ingrédient 1" required>
+      <button type="button" class="delete-btn">🗑</button>
+    </div>
+  </div>
+  <button type="button" id="add-ingredient-btn" class="add-etape-btn">+ Ajouter un ingrédient</button>
+
+  <!-- ETAPES -->
+  <label>Étapes</label>
+  <div id="etapes-container">
+    <div class="etape-row">
+      <input type="text" class="etape-input" placeholder="Étape 1" required>
+      <button type="button" class="delete-btn">🗑</button>
+    </div>
+  </div>
+  <button type="button" id="add-etape-btn" class="add-etape-btn">+ Ajouter une étape</button>
+
+  <!-- IMAGE -->
+  <label>URL de l’image</label>
+  <input type="text" id="new-image">
+
+  <button type="submit">Créer la recette</button>
+</form>
+<div id="preview" class="preview-card" style="display:none;">
+  <h3 id="preview-title"></h3>
+  <span id="preview-category" class="recipe-category"></span>
+  <img id="preview-image" class="recipe-thumb" alt="Prévisualisation image">
+
+  <h4>Ingrédients</h4>
+  <ul id="preview-ingredients"></ul>
+
+  <h4>Étapes</h4>
+  <ol id="preview-etapes"></ol>
+</div>
 
   </main>
 
@@ -61,6 +117,113 @@
     function sansAccents(str) {
       return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
+    
+document.getElementById("add-recipe-btn").onclick = () => {
+  const form = document.getElementById("add-recipe-form");
+  form.style.display = form.style.display === "none" ? "block" : "none";
+};
+document.getElementById("add-ingredient-btn").onclick = () => {
+  const container = document.getElementById("ingredients-container");
+  const row = document.createElement("div");
+  row.className = "ingredient-row";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "ingredient-input";
+  input.placeholder = `Ingrédient`;
+
+  const del = document.createElement("button");
+  del.type = "button";
+  del.className = "delete-btn";
+  del.textContent = "🗑";
+  del.onclick = () => row.remove();
+
+  row.appendChild(input);
+  row.appendChild(del);
+  container.appendChild(row);
+
+  updatePreview();
+};
+document.getElementById("add-etape-btn").onclick = () => {
+  const container = document.getElementById("etapes-container");
+  const row = document.createElement("div");
+  row.className = "etape-row";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "etape-input";
+  input.placeholder = `Étape`;
+
+  const del = document.createElement("button");
+  del.type = "button";
+  del.className = "delete-btn";
+  del.textContent = "🗑";
+  del.onclick = () => row.remove();
+
+  row.appendChild(input);
+  row.appendChild(del);
+  container.appendChild(row);
+
+  updatePreview();
+};function updatePreview() {
+  const preview = document.getElementById("preview");
+  preview.style.display = "block";
+
+  document.getElementById("preview-title").textContent =
+    document.getElementById("new-title").value;
+
+  const cat = document.getElementById("new-category").value;
+  const catEl = document.getElementById("preview-category");
+  catEl.textContent = cat;
+  catEl.className = "recipe-category " + cat;
+
+  const imgUrl = document.getElementById("new-image").value;
+  const imgEl = document.getElementById("preview-image");
+  imgEl.src = imgUrl || "";
+  imgEl.style.display = imgUrl ? "block" : "none";
+
+  const ingList = document.getElementById("preview-ingredients");
+  ingList.innerHTML = "";
+  document.querySelectorAll(".ingredient-input").forEach(i => {
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>${i.value}</strong>`;
+    ingList.appendChild(li);
+  });
+
+  const etList = document.getElementById("preview-etapes");
+  etList.innerHTML = "";
+  document.querySelectorAll(".etape-input").forEach(e => {
+    const li = document.createElement("li");
+    li.textContent = e.value;
+    etList.appendChild(li);
+  });
+}
+document.querySelectorAll("#add-recipe-form input, #add-recipe-form textarea, #add-recipe-form select")
+  .forEach(el => el.addEventListener("input", updatePreview));
+
+document.getElementById("add-recipe-form").onsubmit = (e) => {
+  e.preventDefault();
+
+  const recette = {
+    id: Date.now(),
+    titre: document.getElementById("new-title").value,
+    categorie: document.getElementById("new-category").value,
+    description: document.getElementById("new-description").value,
+    image: document.getElementById("new-image").value,
+    ingredients: Array.from(document.querySelectorAll(".ingredient-input"))
+      .map(i => `<strong>${i.value.trim()}</strong>`),
+    etapes: Array.from(document.querySelectorAll(".etape-input"))
+      .map(e => e.value.trim())
+  };
+
+  const blob = new Blob([JSON.stringify(recette, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "nouvelle-recette.json";
+  a.click();
+};
 
     fetch('../recettes.json')
       .then(response => response.json())
