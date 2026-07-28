@@ -244,6 +244,18 @@ function updatePreview() {
 
 document.querySelectorAll("#add-recipe-form input, #add-recipe-form textarea, #add-recipe-form select")
   .forEach(el => el.addEventListener("input", updatePreview));
+    document.querySelectorAll("#add-recipe-form input, #add-recipe-form textarea")
+
+      .forEach(el => {
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();   // évite de soumettre le formulaire
+        updatePreview();      // met à jour la preview
+        el.blur();            // “valide” le champ visuellement
+      }
+    });
+  });
+
 
 /* ============================
    EXPORT JSON
