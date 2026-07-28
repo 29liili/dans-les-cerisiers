@@ -296,16 +296,19 @@ body.modal-open main,
 body.modal-open header,
 body.modal-open footer {
   filter: blur(4px);
+  position: fixed;
   pointer-events: none;
   user-select: none;
 }
 .form-overlay {
-  position: fixed;
+  position: absolute;
   top: 120px; /* juste sous les filtres */
   left: 50%;
   transform: translateX(-50%);
   width: min(900px, 95%);
   display: flex;
+  overflow-y: auto;   /* permet au contenu de défiler */
+  max-height: calc(100vh - 100px); /* évite qu’elle dépasse l’écran */
   gap: 20px;
   z-index: 100;
   opacity: 0;
