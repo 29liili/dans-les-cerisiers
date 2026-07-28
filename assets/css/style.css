@@ -105,6 +105,19 @@ main {
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+.search-and-add {
+  display: flex;
+  align-items: center;
+}
+
+.search-and-add input {
+  flex: 1;
+  border-radius: 10px 0 0 10px;
+}
+
+.add-recipe-btn {
+  border-radius: 0 10px 10px 0;
+}
 
 /* ============================
    FILTRES
@@ -190,26 +203,6 @@ main {
 /* ============================
    FORMULAIRE
 ============================ */
-.add-recipe-btn {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: none;
-  background: #fff6f9;
-  color: #d88aa3;
-  font-size: 1.6rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-.add-recipe-btn:hover {
-  transform: scale(1.08);
-  opacity: 0.85;
-}
 .add-recipe-form {
   background: #faf7fb;
   padding: 1.5rem;
