@@ -99,6 +99,7 @@ main {
 /* Grille des recettes */
 .latest-recipes {
   text-align: left;
+  font-size: 2.2rem
   margin: 40px auto;
   font-family: 'Ballet', cursive
 }
