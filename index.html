@@ -46,18 +46,13 @@
 
   <!-- Script pour charger les recettes JSON -->
   <script>
-    fetch('recettes.json')
+    fetch('../recettes.json')
   .then(res => res.json())
   .then(recettes => {
 
-    // Trier par ID (Date.now)
-    const latest = recettes
-      .sort((a, b) => b.id - a.id)
-      .slice(0, 3);
+    const grid = document.getElementById('recipes-grid');
 
-    const grid = document.getElementById('latest-recipes-grid');
-
-    latest.forEach(r => {
+    recettes.forEach(r => {
       const card = document.createElement('article');
       card.className = 'recipe-card';
 
@@ -76,6 +71,12 @@
       card.appendChild(img);
       card.appendChild(title);
       card.appendChild(cat);
+
+      // rendre la carte cliquable
+      card.onclick = () => {
+        window.location.href = `./indiv.html?id=${r.id}`;
+      };
+      card.style.cursor = "pointer";
 
       grid.appendChild(card);
     });
