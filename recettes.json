@@ -100,13 +100,13 @@
       "Étaler la pâte à <strong>2 mm</strong> au laminoir. Façonner les ravioles en évitant que les bandeaux de pâte ne sèchent.",
       "Cuire délicatement dans une eau bouillante salée environ <strong>2 à 3 min</strong>."
     ]
-  }
+  },
   {
   "id": 1785272936138,
   "titre": "Cookies",
   "categorie": "sucre",
   "description": "Mes specialités gourmandes lol: -matcha, sarrasin et chocolat au lait.\n- Cacahouète, chocolat noir et fleur de sel.",
-  "image": "assets/images/cookie.png",
+  "image": "/assets/images/cookie.png",
   "ingredients": [
     "<strong>250g de farine</strong>",
     "<strong>90g de cassonade</strong>",
