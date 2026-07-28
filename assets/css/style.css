@@ -364,6 +364,16 @@ body.modal-open footer {
   pointer-events: none;
   user-select: none;
 }
+.modal {
+  max-width: 480px;        /* empêche le panneau d'être trop large */
+  width: 90%;              /* responsive */
+  max-height: 80vh;        /* empêche le panneau de dépasser l'écran */
+  overflow-y: auto;        /* scroll interne si nécessaire */
+  box-sizing: border-box;  /* évite les débordements internes */
+  padding: 2rem;           /* garde ton style */
+  border-radius: 12px;     /* garde ton esthétique */
+}
+
 .form-overlay {
   position: absolute;
   top: 120px; /* juste sous les filtres */
