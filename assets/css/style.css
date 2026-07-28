@@ -266,6 +266,51 @@ main {
   align-items: center;
   margin-top: 8px;
 }
+body.modal-open main,
+body.modal-open header,
+body.modal-open footer {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+.form-overlay {
+  position: fixed;
+  top: 120px; /* juste sous les filtres */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 95%);
+  display: flex;
+  gap: 20px;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.form-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.add-recipe-form,
+.preview-card {
+  flex: 1;
+  background: #faf7fb;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.form-overlay.show .add-recipe-form,
+.form-overlay.show .preview-card {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.add-recipe-form,
+.preview-card {
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
 
 /* ============================
    PRÉVISUALISATION
