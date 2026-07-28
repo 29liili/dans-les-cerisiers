@@ -103,6 +103,11 @@ main {
   margin: 40px auto;
   font-family: 'Ballet', cursive
 }
+.recipes-grid h4 {
+  font-size: 1.2rem; /* légèrement plus grand */
+  margin: 10px 0 5px;
+}
+
 
 .recipes-grid {
   display: grid;
@@ -461,6 +466,11 @@ body.modal-open footer {
   font-weight: 600;
   margin-bottom: 1rem;
   text-align: center;
+}
+.recipe-category {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
 }
 
 .recipe-category.chaud {
