@@ -43,52 +43,50 @@
   </footer>
 
   <script>
-    // Récupération de l'ID dans l'URL
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+   // Récupération de l'ID dans l'URL
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
 
-    fetch('../recettes.json')
-      .then(response => response.json())
-      .then(recettes => {
+fetch('../recettes.json')
+  .then(response => response.json())
+  .then(recettes => {
 
-        const recette = recettes.find(r => r.id === id);
+    // Correction : comparaison souple
+    const recette = recettes.find(r => r.id == id);
 
-        if (!recette) {
-          document.getElementById("recette-container").innerHTML =
-            "<p>Recette introuvable.</p>";
-          return;
-        }
+    if (!recette) {
+      document.getElementById("recette-container").innerHTML =
+        "<p>Recette introuvable.</p>";
+      return;
+    }
 
-        // Remplissage des éléments
-        document.getElementById("recette-titre").textContent = recette.titre;
-        
-        // Catégorie
-        const categorieElement = document.getElementById("recette-categorie");
-        categorieElement.textContent = recette.categorie;
-        categorieElement.classList.add(recette.categorie);
+    // Remplissage des éléments
+    document.getElementById("recette-titre").textContent = recette.titre;
 
-  
+    // Catégorie
+    const categorieElement = document.getElementById("recette-categorie");
+    categorieElement.textContent = recette.categorie;
+    categorieElement.classList.add(recette.categorie);
 
-        // Image
-        const img = document.getElementById("recette-image");
-        img.src = recette.image;
-        img.alt = recette.titre;
+    // Image
+    const img = document.getElementById("recette-image");
+    img.src = recette.image;
+    img.alt = recette.titre;
 
-        // Description
-        document.getElementById("recette-description").textContent =
-          recette.description;
+    // Description
+    document.getElementById("recette-description").textContent =
+      recette.description;
 
-        // Étapes
-        const etapesList = document.getElementById("recette-etapes");
-        recette.etapes.forEach(etape => {
-        const li = document.createElement("li");
-        li.innerHTML = etape;   // <-- CORRECTION ICI
-        etapesList.appendChild(li);
+    // Étapes
+    const etapesList = document.getElementById("recette-etapes");
+    recette.etapes.forEach(etape => {
+      const li = document.createElement("li");
+      li.innerHTML = etape;
+      etapesList.appendChild(li);
+    });
 
+  });
 
-        });
-
-      });
   </script>
 
 </body>
