@@ -123,5 +123,20 @@
     "Préchauffer le four à 190°c.",
     "Cuire 9min, sur grille au bas du four. Laisser bien refroidir avant dégustation."
   ]
+},
+  {
+  "id": 1785278699358,
+  "titre": "Cookies",
+  "categorie": "sucre",
+  "description": "Mes specialités gourmandes lol: - Matcha, sarrasin et chocolat au lait\n et -  Cacahouète, chocolat noir et fleur de sel. \n",
+  "image": "dans-les-cerisiers/assets/images/cookie.png",
+  "etapes": [
+    "Mélanger <strong>250g de farine</strong> + <strong>90g de cassonade</strong> + <strong>0,5 sachet de levure chimique</strong> + <strong>sel</strong>",
+    "Ajouter et pétrir avec <strong>125g de beurre mou</strong> + <strong>1 oeuf battu</strong> + <strong>2cc de miel</strong>.",
+    "Ajouter les garnitures, chocolats, fruits secs...",
+    "Préchauffer le four à 190°c.",
+    "Faire des boules avec la pâte à cookie, puis les mettre au frigo pendant 30min.",
+    "Cuire sur une grille au bas du four pendant 30min. Laisser bien refroidir avant de déguster."
+  ]
 }
 ]
