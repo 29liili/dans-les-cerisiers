@@ -77,6 +77,40 @@ main {
   font-weight: 600;
   margin-bottom: 2rem;
 }
+.section-title {
+  font-family: 'Ballet', cursive;
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+  color: #3a2e3f;
+}
+
+/* Instagram */
+.instagram-gallery iframe {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+/* Grille des recettes */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 1.5rem;
+}
+
+.recipes-grid .recipe-card {
+  background: #faf7fb;
+  padding: 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.recipes-grid .recipe-thumb {
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
 
 /* ============================
    BARRE DE RECHERCHE + BOUTON +
