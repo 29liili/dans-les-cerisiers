@@ -70,10 +70,6 @@
     <label for="new-description">Description</label>
     <textarea id="new-description"></textarea>
 
-    <h4>Ingrédients</h4>
-    <div id="ingredients-container"></div>
-    <button type="button" id="add-ingredient-btn" class="add-etape-btn">Ajouter un ingrédient</button>
-
     <h4>Étapes</h4>
     <div id="etapes-container"></div>
     <button type="button" id="add-etape-btn" class="add-etape-btn">Ajouter une étape</button>
@@ -86,8 +82,6 @@
     <img id="preview-image" src="" alt="">
     <p class="recipe-description" id="preview-description"></p>
     <span id="preview-category" class="recipe-category"></span>
-
-    <ul id="preview-ingredients"></ul>
     <ol id="preview-etapes"></ol>
   </div>
 
@@ -106,17 +100,24 @@
   </footer>
 
   <!-- SCRIPT COMPLET -->
-  <script>
+ <script>
 
-    /* ============================
-   FONCTION : Retirer les accents
+/* ============================
+   Retirer les accents
 ============================ */
 function sansAccents(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 /* ============================
-   OUVERTURE / FERMETURE PANNEAU FLOTTANT
+   Convertir *gras* → <strong>
+============================ */
+function convertStarsToBold(text) {
+  return text.replace(/\*(.*?)\*/g, "<strong>$1</strong>");
+}
+
+/* ============================
+   OUVERTURE / FERMETURE PANNEAU
 ============================ */
 document.getElementById("add-recipe-btn").onclick = () => {
   const overlay = document.getElementById("form-overlay");
@@ -128,13 +129,11 @@ document.getElementById("add-recipe-btn").onclick = () => {
   if (!isOpen) {
     form.style.display = "block";
     preview.style.display = "block";
-
     overlay.classList.add("show");
     document.body.classList.add("modal-open");
   } else {
     overlay.classList.remove("show");
     document.body.classList.remove("modal-open");
-
     setTimeout(() => {
       form.style.display = "none";
       preview.style.display = "none";
@@ -142,7 +141,6 @@ document.getElementById("add-recipe-btn").onclick = () => {
   }
 };
 
-/* Bouton de fermeture */
 document.getElementById("close-panel").onclick = () => {
   const overlay = document.getElementById("form-overlay");
   const form = document.getElementById("add-recipe-form");
@@ -158,31 +156,8 @@ document.getElementById("close-panel").onclick = () => {
 };
 
 /* ============================
-   AJOUT INGREDIENTS / ETAPES
+   AJOUT D'ÉTAPES
 ============================ */
-document.getElementById("add-ingredient-btn").onclick = () => {
-  const container = document.getElementById("ingredients-container");
-  const row = document.createElement("div");
-  row.className = "ingredient-row";
-
-  const input = document.createElement("input");
-  input.type = "text";
-  input.className = "ingredient-input";
-  input.placeholder = "Ingrédient";
-
-  const del = document.createElement("button");
-  del.type = "button";
-  del.className = "delete-btn";
-  del.textContent = "🗑";
-  del.onclick = () => row.remove();
-
-  row.appendChild(input);
-  row.appendChild(del);
-  container.appendChild(row);
-
-  updatePreview();
-};
-
 document.getElementById("add-etape-btn").onclick = () => {
   const container = document.getElementById("etapes-container");
   const row = document.createElement("div");
@@ -226,139 +201,4 @@ function updatePreview() {
   imgEl.src = imgUrl || "";
   imgEl.style.display = imgUrl ? "block" : "none";
 
-  const ingList = document.getElementById("preview-ingredients");
-  ingList.innerHTML = "";
-  document.querySelectorAll(".ingredient-input").forEach(i => {
-    const li = document.createElement("li");
-    li.innerHTML = `<strong>${i.value}</strong>`;
-    ingList.appendChild(li);
-  });
-
-  const etList = document.getElementById("preview-etapes");
-  etList.innerHTML = "";
-  document.querySelectorAll(".etape-input").forEach(e => {
-    const li = document.createElement("li");
-    li.textContent = e.value;
-    etList.appendChild(li);
-  });
-}
-
-document.querySelectorAll("#add-recipe-form input, #add-recipe-form textarea, #add-recipe-form select")
-  .forEach(el => el.addEventListener("input", updatePreview));
-    document.querySelectorAll("#add-recipe-form input, #add-recipe-form textarea")
-
-      .forEach(el => {
-    el.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();   // évite de soumettre le formulaire
-        updatePreview();      // met à jour la preview
-        el.blur();            // “valide” le champ visuellement
-      }
-    });
-  });
-
-
-/* ============================
-   EXPORT JSON
-============================ */
-document.getElementById("add-recipe-form").onsubmit = (e) => {
-  e.preventDefault();
-
-  const recette = {
-    id: Date.now(),
-    titre: document.getElementById("new-title").value,
-    categorie: document.getElementById("new-category").value,
-    description: document.getElementById("new-description").value,
-    image: document.getElementById("new-image").value,
-    ingredients: Array.from(document.querySelectorAll(".ingredient-input"))
-      .map(i => `<strong>${i.value.trim()}</strong>`),
-    etapes: Array.from(document.querySelectorAll(".etape-input"))
-      .map(e => e.value.trim())
-  };
-
-  const blob = new Blob([JSON.stringify(recette, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "nouvelle-recette.json";
-  a.click();
-};
-
-/* ============================
-   AFFICHAGE DES RECETTES
-============================ */
-fetch('../recettes.json')
-  .then(response => response.json())
-  .then(recettes => {
-
-    const container = document.getElementById('recettes');
-    const buttons = document.querySelectorAll('.filters button');
-    const searchInput = document.getElementById('search');
-
-    function afficherRecettes(categorie) {
-      container.innerHTML = '';
-
-      const liste = recettes.filter(r => categorie === 'all' || r.categorie === categorie);
-
-      if (liste.length === 0) {
-        container.innerHTML = '<p class="no-recipes">Aucune recette dans cette catégorie.</p>';
-        return;
-      }
-
-      liste.forEach(recette => {
-        const article = document.createElement('article');
-        article.className = 'recipe-card';
-
-        const titre = document.createElement('h3');
-        titre.className = 'recipe-title';
-
-        const lien = document.createElement('a');
-        lien.href = `indiv.html?id=${recette.id}`;
-        lien.textContent = recette.titre;
-        titre.appendChild(lien);
-
-        const description = document.createElement('p');
-        description.className = 'recipe-description';
-        description.textContent = recette.description;
-
-        const categorieElement = document.createElement('span');
-        categorieElement.className = 'recipe-category';
-        categorieElement.textContent = recette.categorie;
-        categorieElement.classList.add(recette.categorie);
-
-        article.appendChild(titre);
-        article.appendChild(description);
-        article.appendChild(categorieElement);
-
-        container.appendChild(article);
-      });
-    }
-
-    afficherRecettes('all');
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        afficherRecettes(btn.dataset.cat);
-      });
-    });
-
-    searchInput.addEventListener('input', () => {
-      const query = sansAccents(searchInput.value.toLowerCase());
-      const articles = document.querySelectorAll('#recettes article');
-
-      articles.forEach(article => {
-        const titre = sansAccents(article.querySelector('.recipe-title').textContent.toLowerCase());
-        const description = sansAccents(article.querySelector('.recipe-description').textContent.toLowerCase());
-
-        const match = titre.includes(query) || description.includes(query);
-
-        article.style.display = match ? '' : 'none';
-      });
-    });
-
-  });
-  </script>
-
-</body>
-</html>
+  const etList = document
