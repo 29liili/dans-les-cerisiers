@@ -122,7 +122,7 @@
   "titre": "Appareil à quiche",
   "categorie": "base",
   "description": "Appareil à crème prise.",
-  "image": "",
+  "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Mélanger <strong>2 jaunes d'oeuf</strong> + <strong>2 oeufs</strong> + <strong>125g de crème liquide</strong> + <strong>125g de lait</strong> et assaisonner."
   ]
@@ -132,7 +132,7 @@
   "titre": "Pâte brisée",
   "categorie": "base",
   "description": "Pâte de base pour les tartes et quiches.",
-  "image": "",
+  "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Faire un puit avec <strong>250g de farine</strong> + <strong>5g de sel</strong>.",
     "Dans le puit, ajouter <strong>1 jaune d'oeuf</strong> + <strong>50g d'eau</strong> et mélanger sans trop travailler la pâte. Le réseau glutineux ne doit pas trop se développer, afin d'obtenir une pâte légèrement friable et qui ne se rétracte pas.",
@@ -145,7 +145,7 @@
   "titre": "Pommes dauphine",
   "categorie": "chaud",
   "description": "Un mélange de pomme de terre et de pâte à choux.",
-  "image": "",
+  "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Cuire <strong>400g de pommes de terre</strong> en robe des champs (non épluchées, dans de l'aluminium au four à 200°c.)",
     "Réaliser la pâte à choux: <strong>40g de beurre</strong> + <strong>125g d'eau</strong>. Puis <strong>65g de farine</strong> + <strong>sel</strong>. Et enfin, <strong>2 oeufs</strong>.",
@@ -159,7 +159,7 @@
   "titre": "Laitue braisée",
   "categorie": "chaud",
   "description": "Un classique en école de cuisine.",
-  "image": "",
+  "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Nettoyer les <strong>laitues</strong> et enlever les feuilles abimées. Tailler une garniture aromatique: <strong>carottes</strong> + <strong>oignons</strong> + <strong>celeri branche</strong>.",
     "Blanchir les laitues puis les plonger dans une glaçante.",
@@ -173,7 +173,7 @@
   "titre": "Pickles",
   "categorie": "froid",
   "description": "Cette méthode permet de condimenter les plats, et de conserver des légumes et fruits, qui parfois auraient finis à la poubelle.",
-  "image": "",
+  "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Faire bouillir <strong>100g de sucre</strong> + <strong>200g de vinaigre</strong> + <strong>100g d'eau</strong>.",
     "Verser le liquide sur les aliments préalablement lavés. Mettre sous-vide et pasteuriser si possible.",
