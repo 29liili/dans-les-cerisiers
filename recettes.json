@@ -116,5 +116,69 @@
     "Faire des boules avec la pâte à cookie, puis les mettre au frigo pendant 30min.",
     "Cuire sur une grille au bas du four pendant 30min. Laisser bien refroidir avant de déguster."
   ]
-}
+},
+  {
+  "id": 1785343097813,
+  "titre": "Appareil à quiche",
+  "categorie": "base",
+  "description": "Appareil à crème prise.",
+  "image": "",
+  "etapes": [
+    "Mélanger <strong>2 jaunes d'oeuf</strong> + <strong>2 oeufs</strong> + <strong>125g de crème liquide</strong> + <strong>125g de lait</strong> et assaisonner."
+  ]
+},
+  {
+  "id": 1785343567132,
+  "titre": "Pâte brisée",
+  "categorie": "base",
+  "description": "Pâte de base pour les tartes et quiches.",
+  "image": "",
+  "etapes": [
+    "Faire un puit avec <strong>250g de farine</strong> + <strong>5g de sel</strong>.",
+    "Dans le puit, ajouter <strong>1 jaune d'oeuf</strong> + <strong>50g d'eau</strong> et mélanger sans trop travailler la pâte. Le réseau glutineux ne doit pas trop se développer, afin d'obtenir une pâte légèrement friable et qui ne se rétracte pas.",
+    "Pour finir, incorporer <strong>125g de beurre en parcelle</strong>. Fraser la pâte, toujours en la travaillant le moins possible.",
+    "Laisser refroidir et reposer la pâte au frigo avant cuisson."
+  ]
+},
+  {
+  "id": 1785344585275,
+  "titre": "Pommes dauphine",
+  "categorie": "chaud",
+  "description": "Un mélange de pomme de terre et de pâte à choux.",
+  "image": "",
+  "etapes": [
+    "Cuire <strong>400g de pommes de terre</strong> en robe des champs (non épluchées, dans de l'aluminium au four à 200°c.)",
+    "Réaliser la pâte à choux: <strong>40g de beurre</strong> + <strong>125g d'eau</strong>. Puis <strong>65g de farine</strong> + <strong>sel</strong>. Et enfin, <strong>2 oeufs</strong>.",
+    "Récupérer toute la pulpe des pommes de terre, et la mélanger à la pâte à choux.",
+    "Former les pommes dauphines et les fariner légèrement.",
+    "Pour la cuisson, ce sera soit frit, soit au four. On peut également les congeler."
+  ]
+},
+  {
+  "id": 1785345212235,
+  "titre": "Laitue braisée",
+  "categorie": "chaud",
+  "description": "Un classique en école de cuisine.",
+  "image": "",
+  "etapes": [
+    "Nettoyer les <strong>laitues</strong> et enlever les feuilles abimées. Tailler une garniture aromatique: <strong>carottes</strong> + <strong>oignons</strong> + <strong>celeri branche</strong>.",
+    "Blanchir les laitues puis les plonger dans une glaçante.",
+    "Dans un sautoir, faire suer la GA dans de l'huile d'olive, ajouter <strong>une gousse d'ail</strong>, du <strong>thym</strong> et du <strong>laurier</strong>. Poser les laitues par-dessus. Mouiller à hauteur avec un liquide (fond blanc, bouillon...). Porter à ébulition, couvrir et enfourner à 180°c pendant 1h30. Arroser souvent.",
+    "On peut également rajouter par-dessus de la <strong>couenne de porc</strong> ou du <strong>lard</strong> avant de couvrir.",
+    "Un fois cuite, sortir les laitues, les égoutter et retirer leur trognon."
+  ]
+},
+  {
+  "id": 1785345758349,
+  "titre": "Pickles",
+  "categorie": "froid",
+  "description": "Cette méthode permet de condimenter les plats, et de conserver des légumes et fruits, qui parfois auraient finis à la poubelle.",
+  "image": "",
+  "etapes": [
+    "Faire bouillir <strong>100g de sucre</strong> + <strong>200g de vinaigre</strong> + <strong>100g d'eau</strong>.",
+    "Verser le liquide sur les aliments préalablement lavés. Mettre sous-vide et pasteuriser si possible.",
+    "Garder à température ambiante."
+  ]
+},
+  
 ]
