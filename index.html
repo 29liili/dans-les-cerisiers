@@ -34,11 +34,11 @@
       </a>
     </section>
 
-    <!-- Section des dernières adresses coup de coeur -->
+    <!-- Section des dernières adresses coup de coeur (même présentation que sur la page carte) -->
     <section class="latest-addresses">
       <h3>Adresses coup de coeur :</h3>
 
-      <div id="latest-addresses-grid" class="recipes-grid"></div>
+      <div id="latest-addresses-grid" class="adresses-list"></div>
 
       <a href="./carte/index.html" class="see-all-btn">
         Toutes les adresses →
@@ -101,61 +101,50 @@
 
   </script>
 
-  <!-- Script pour charger les dernières adresses coup de coeur (triées par date, plus récentes d'abord) -->
+  <!-- Script pour charger les dernières adresses coup de coeur (même structure que sur la page carte) -->
   <script>
     fetch('./carte/adresses.json')
       .then(res => res.json())
       .then(adresses => {
-        // Trier par date décroissante (plus récentes en premier). Si pas de date, on considère 0.
+        // trier par date décroissante (plus récentes en premier)
         adresses.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
         const latest = adresses.slice(0, 3);
         const grid = document.getElementById('latest-addresses-grid');
         grid.innerHTML = '';
 
         latest.forEach(a => {
-          // Utiliser la même structure que les cartes de recettes pour harmoniser
+          // Construire la carte exactement comme dans carte/index.html
           const card = document.createElement('article');
-          card.className = 'recipe-card';
+          card.className = 'adresse-card';
 
-          // Harmonisation visuelle inline (couleurs / fond similaires à carte/index.html)
-          card.style.background = '#faf7fb';
-          card.style.borderLeft = '4px solid #d88aa3';
-
-          const title = document.createElement('h4');
+          const title = document.createElement('h3');
           title.textContent = a.nom;
-          title.style.fontFamily = 'Ballet, cursive';
-          title.style.fontSize = '1.35rem';
-          title.style.color = '#3a2e3f';
-          title.style.margin = '8px 0';
 
           const addr = document.createElement('p');
-          addr.className = 'recipe-description';
-          addr.textContent = a.adresse;
-          addr.style.color = '#5a4a63';
+          addr.innerHTML = `<strong>📍</strong> ${a.adresse}`;
+
+          const horaires = document.createElement('p');
+          horaires.innerHTML = `<strong>⏰</strong> ${a.horaires || ''}`;
+
+          const desc = document.createElement('p');
+          desc.textContent = a.description || '';
 
           const type = document.createElement('span');
-          type.className = 'recipe-category ' + (a.type ? a.type.replace(/\s+/g, '-').toLowerCase() : 'adresse');
+          type.className = 'type';
           type.textContent = a.type || '';
-          // enlever l'encadré : présentation simple (texte, couleur rose) — pas de fond ni bordure
-          type.style.display = 'inline-block';
-          type.style.backgroundColor = 'transparent';
-          type.style.color = '#d88aa3';
-          type.style.padding = '0';
-          type.style.borderRadius = '0';
-          type.style.fontSize = '0.85rem';
-          type.style.fontWeight = '600';
-          type.style.marginTop = '6px';
 
-          // Bouton Google Maps (style repris de carte/index)
           const mapsLink = document.createElement('a');
           mapsLink.href = `https://www.google.com/maps/search/${encodeURIComponent(a.adresse)}/@${a.lat},${a.lng},15z`;
           mapsLink.target = '_blank';
           mapsLink.className = 'google-maps-btn';
           mapsLink.textContent = '📍 Voir sur Google Maps';
 
+          // assembler
           card.appendChild(title);
-          card.appendChild(type);
           card.appendChild(addr);
+          card.appendChild(horaires);
+          card.appendChild(desc);
+          card.appendChild(type);
           card.appendChild(mapsLink);
 
           // rendre la carte cliquable vers la page d'adresses (avec un #id pour repérer)
