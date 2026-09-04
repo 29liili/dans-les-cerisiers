@@ -101,14 +101,16 @@
 
   </script>
 
-  <!-- Script pour charger les dernières adresses coup de coeur -->
+  <!-- Script pour charger les dernières adresses coup de coeur (triées par date, plus récentes d'abord) -->
   <script>
-    // On récupère les 3 dernières adresses enregistrées
     fetch('./carte/adresses.json')
       .then(res => res.json())
       .then(adresses => {
-        const latest = adresses.slice(-3);
+        // Trier par date décroissante (plus récentes en premier). Si pas de date, on considère 0.
+        adresses.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+        const latest = adresses.slice(0, 3);
         const grid = document.getElementById('latest-addresses-grid');
+        grid.innerHTML = '';
 
         latest.forEach(a => {
           const card = document.createElement('article');
@@ -133,24 +135,33 @@
           mapsLink.className = 'see-all-btn';
           mapsLink.textContent = 'Voir sur Google Maps';
 
+          // Date affichée optionnelle
+          let dateEl = null;
+          if (a.date) {
+            dateEl = document.createElement('div');
+            dateEl.className = 'recipe-description';
+            const d = new Date(a.date);
+            // format local FR court
+            dateEl.textContent = `Trouvée le ${d.toLocaleDateString('fr-FR')}`;
+          }
+
           card.appendChild(title);
           card.appendChild(addr);
+          if (dateEl) card.appendChild(dateEl);
           card.appendChild(type);
           card.appendChild(mapsLink);
 
           // rendre la carte cliquable vers la page d'adresses (avec un #id pour repérer)
-          card.onclick = (e) => {
-            // évite la navigation si l'utilisateur a cliqué sur le lien Google Maps
+          card.addEventListener('click', (e) => {
             if (e.target === mapsLink) return;
             window.location.href = `./carte/index.html#id=${a.id}`;
-          };
+          });
           card.style.cursor = 'pointer';
 
           grid.appendChild(card);
         });
       })
       .catch(err => {
-        // si le fichier n'existe pas ou erreur, on ne bloque pas la page
         console.warn('Impossible de charger les adresses:', err);
       });
   </script>
