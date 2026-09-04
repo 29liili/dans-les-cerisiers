@@ -30,6 +30,8 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       border-left: 4px solid #d88aa3;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
     
     .adresse-card:hover {
@@ -62,6 +64,26 @@
       margin-top: 12px;
       letter-spacing: 0.3px;
     }
+
+    .adresse-card .google-maps-btn {
+      display: inline-block;
+      margin-top: auto;
+      padding: 10px 16px;
+      background-color: #d88aa3;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      margin-top: 14px;
+    }
+
+    .adresse-card .google-maps-btn:hover {
+      background-color: #c77493;
+      transform: scale(1.02);
+    }
     
     .leaflet-popup-content-wrapper {
       border-radius: 8px;
@@ -79,6 +101,23 @@
       color: #5a4a63;
       font-size: 0.9rem;
       line-height: 1.5;
+    }
+
+    .popup-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #d88aa3;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .popup-link:hover {
+      background-color: #c77493;
     }
 
     .no-recipes {
@@ -153,6 +192,11 @@
         horaires: "Sur rendez-vous"
       }
     ];
+
+    // Fonction pour créer l'URL Google Maps
+    function getGoogleMapsUrl(adresse, lat, lng) {
+      return `https://www.google.com/maps/search/${encodeURIComponent(adresse)}/@${lat},${lng},15z`;
+    }
     
     // Initialiser la carte
     const map = L.map('map').setView([48.8566, 2.3522], 11);
@@ -165,6 +209,7 @@
     
     // Ajouter les marqueurs
     adresses.forEach(addr => {
+      const mapsUrl = getGoogleMapsUrl(addr.adresse, addr.lat, addr.lng);
       const popupContent = `
         <div style="width: 240px;">
           <div class="popup-title">${addr.nom}</div>
@@ -172,6 +217,8 @@
             <strong>📍 ${addr.adresse}</strong><br>
             <strong>⏰ ${addr.horaires}</strong><br><br>
             ${addr.description}
+            <br>
+            <a href="${mapsUrl}" target="_blank" class="popup-link">📍 Voir sur Google Maps</a>
           </div>
         </div>
       `;
@@ -186,6 +233,7 @@
     // Afficher la liste des adresses en dessous de la carte
     const listContainer = document.getElementById('adressesList');
     adresses.forEach(addr => {
+      const mapsUrl = getGoogleMapsUrl(addr.adresse, addr.lat, addr.lng);
       const card = document.createElement('div');
       card.className = 'adresse-card';
       card.innerHTML = `
@@ -194,6 +242,7 @@
         <p><strong>⏰</strong> ${addr.horaires}</p>
         <p>${addr.description}</p>
         <span class="type">${addr.type}</span>
+        <a href="${mapsUrl}" target="_blank" class="google-maps-btn">📍 Voir sur Google Maps</a>
       `;
       listContainer.appendChild(card);
     });
