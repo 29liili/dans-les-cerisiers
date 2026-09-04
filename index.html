@@ -117,24 +117,34 @@
           const card = document.createElement('article');
           card.className = 'recipe-card';
 
-          // Petite vignette : si vous avez une image pour l'adresse, ajoutez le champ image dans adresses.json
-          // sinon on affiche le logo du site comme placeholder
-          const img = document.createElement('img');
-          img.className = 'recipe-thumb';
-          img.src = a.image || '/dans-les-cerisiers/assets/images/logo.png';
+          // Harmonisation visuelle inline (couleurs / fond similaires à carte/index.html)
+          card.style.background = '#faf7fb';
+          card.style.borderLeft = '4px solid #d88aa3';
 
           const title = document.createElement('h4');
           title.textContent = a.nom;
           title.style.fontFamily = 'Ballet, cursive';
-          title.style.fontSize = '1.1rem';
+          title.style.fontSize = '1.35rem';
+          title.style.color = '#3a2e3f';
+          title.style.margin = '8px 0';
 
           const addr = document.createElement('p');
           addr.className = 'recipe-description';
           addr.textContent = a.adresse;
+          addr.style.color = '#5a4a63';
 
           const type = document.createElement('span');
           type.className = 'recipe-category ' + (a.type ? a.type.replace(/\s+/g, '-').toLowerCase() : 'adresse');
           type.textContent = a.type || '';
+          // style du tag similaire à carte/index
+          type.style.display = 'inline-block';
+          type.style.backgroundColor = '#fff6f9';
+          type.style.color = '#d88aa3';
+          type.style.padding = '6px 12px';
+          type.style.borderRadius = '12px';
+          type.style.fontSize = '0.75rem';
+          type.style.fontWeight = '600';
+          type.style.marginTop = '10px';
 
           const mapsLink = document.createElement('a');
           mapsLink.href = `https://www.google.com/maps/search/${encodeURIComponent(a.adresse)}/@${a.lat},${a.lng},15z`;
@@ -142,20 +152,9 @@
           mapsLink.className = 'see-all-btn';
           mapsLink.textContent = 'Voir sur Google Maps';
 
-          // Date affichée optionnelle (format court FR)
-          let dateEl = null;
-          if (a.date) {
-            dateEl = document.createElement('div');
-            dateEl.className = 'recipe-description';
-            const d = new Date(a.date);
-            dateEl.textContent = `Trouvée le ${d.toLocaleDateString('fr-FR')}`;
-          }
-
-          card.appendChild(img);
           card.appendChild(title);
           card.appendChild(type);
           card.appendChild(addr);
-          if (dateEl) card.appendChild(dateEl);
           card.appendChild(mapsLink);
 
           // rendre la carte cliquable vers la page d'adresses (avec un #id pour repérer)
