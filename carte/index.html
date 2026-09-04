@@ -1,1 +1,183 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte - Dans les Cerisiers</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        #map {
+            height: 600px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .adresses-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .adresse-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #d4a574;
+            transition: transform 0.3s ease;
+        }
+        
+        .adresse-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .adresse-card h3 {
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        
+        .adresse-card p {
+            color: #666;
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .adresse-card .type {
+            display: inline-block;
+            background-color: #d4a574;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+        }
+        
+        .popup-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .popup-desc {
+            color: #666;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗺️ Découvrez nos emplacements</h1>
+        
+        <div id="map"></div>
+        
+        <div class="adresses-list" id="adressesList"></div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Données des adresses
+        const adresses = [
+            {
+                id: 1,
+                nom: "Les Cerisiers - Centre",
+                adresse: "123 Rue du Verger, 75000 Paris",
+                type: "Magasin principal",
+                description: "Notre boutique principale avec une large sélection de produits.",
+                lat: 48.8566,
+                lng: 2.3522,
+                horaires: "Lun-Dim: 10h-19h"
+            },
+            {
+                id: 2,
+                nom: "Les Cerisiers - Banlieue",
+                adresse: "456 Avenue de la Paix, 92400 Courbevoie",
+                type: "Magasin secondaire",
+                description: "Notre succursale en proche banlieue pour vous servir.",
+                lat: 48.8960,
+                lng: 2.2662,
+                horaires: "Lun-Dim: 10h-19h"
+            },
+            {
+                id: 3,
+                nom: "Les Cerisiers - Atelier",
+                adresse: "789 Chemin de la Source, 75020 Paris",
+                type: "Atelier & Dégustation",
+                description: "Atelier de production et espace de dégustation.",
+                lat: 48.8645,
+                lng: 2.4075,
+                horaires: "Sur rendez-vous"
+            }
+        ];
+        
+        // Initialiser la carte
+        const map = L.map('map').setView([48.8566, 2.3522], 11);
+        
+        // Ajouter les tuiles (fond de carte) - OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 19
+        }).addTo(map);
+        
+        // Ajouter les marqueurs
+        adresses.forEach(addr => {
+            const popupContent = `
+                <div style="width: 250px;">
+                    <div class="popup-title">${addr.nom}</div>
+                    <div class="popup-desc">
+                        <strong>📍 ${addr.adresse}</strong><br>
+                        <strong>⏰ ${addr.horaires}</strong><br><br>
+                        ${addr.description}
+                    </div>
+                </div>
+            `;
+            
+            L.marker([addr.lat, addr.lng], {
+                title: addr.nom
+            })
+            .bindPopup(popupContent)
+            .addTo(map);
+        });
+        
+        // Afficher la liste des adresses en dessous de la carte
+        const listContainer = document.getElementById('adressesList');
+        adresses.forEach(addr => {
+            const card = document.createElement('div');
+            card.className = 'adresse-card';
+            card.innerHTML = `
+                <h3>${addr.nom}</h3>
+                <p><strong>📍 ${addr.adresse}</strong></p>
+                <p><strong>⏰ ${addr.horaires}</strong></p>
+                <p>${addr.description}</p>
+                <span class="type">${addr.type}</span>
+            `;
+            listContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>
