@@ -78,7 +78,6 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: flex;
       flex-direction: column;
-      cursor: pointer;
     }
     
     .adresse-card:hover {
@@ -219,39 +218,10 @@
     
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // Données des adresses
-    const adresses = [
-      {
-        id: 1,
-        nom: "Les Cerisiers - Centre",
-        adresse: "123 Rue du Verger, 75000 Paris",
-        type: "Magasin principal",
-        description: "Notre boutique principale avec une large sélection de produits.",
-        lat: 48.8566,
-        lng: 2.3522,
-        horaires: "Lun-Dim: 10h-19h"
-      },
-      {
-        id: 2,
-        nom: "Les Cerisiers - Banlieue",
-        adresse: "456 Avenue de la Paix, 92400 Courbevoie",
-        type: "Magasin secondaire",
-        description: "Notre succursale en proche banlieue pour vous servir.",
-        lat: 48.8960,
-        lng: 2.2662,
-        horaires: "Lun-Dim: 10h-19h"
-      },
-      {
-        id: 3,
-        nom: "Les Cerisiers - Atelier",
-        adresse: "789 Chemin de la Source, 75020 Paris",
-        type: "Atelier & Dégustation",
-        description: "Atelier de production et espace de dégustation.",
-        lat: 48.8645,
-        lng: 2.4075,
-        horaires: "Sur rendez-vous"
-      }
-    ];
+    // variable globale qui contiendra les adresses chargées depuis adresses.json
+    let adresses = [];
+    // map of markers by id so we can open them from a hash
+    const markersById = {};
 
     let userLocation = null;
     let userMarker = null;
@@ -274,10 +244,10 @@
       return `https://www.google.com/maps/search/${encodeURIComponent(adresse)}/@${lat},${lng},15z`;
     }
 
-    // Icône rose pour les marqueurs d'adresses
-    const pinkIcon = L.icon({
-      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-d88aa3.png',
-      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    // Icône par défaut (couleur standard Leaflet / OSM)
+    const defaultIcon = L.icon({
+      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
       popupAnchor: [1, -34],
@@ -292,44 +262,72 @@
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19
     }).addTo(map);
-    
-    // Ajouter les marqueurs des adresses (et garder une référence)
-    adresses.forEach(addr => {
-      const mapsUrl = getGoogleMapsUrl(addr.adresse, addr.lat, addr.lng);
-      const popupContent = `
-        <div style="width: 240px;">
-          <div class="popup-title">${addr.nom}</div>
-          <div class="popup-desc">
-            <strong>📍 ${addr.adresse}</strong><br>
-            <strong>⏰ ${addr.horaires}</strong><br><br>
-            ${addr.description}
-            <br>
-            <a href="${mapsUrl}" target="_blank" class="popup-link">📍 Voir sur Google Maps</a>
-          </div>
-        </div>
-      `;
-      
-      const marker = L.marker([addr.lat, addr.lng], {
-        title: addr.nom,
-        icon: pinkIcon
+
+    // Charger les adresses depuis le fichier JSON
+    fetch('adresses.json')
+      .then(res => res.json())
+      .then(data => {
+        // trier par date (plus récentes en premier) si le champ date existe
+        data.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+        adresses = data;
+
+        // Ajouter les marqueurs des adresses
+        adresses.forEach(addr => {
+          const mapsUrl = getGoogleMapsUrl(addr.adresse, addr.lat, addr.lng);
+          const popupContent = `
+            <div style="width: 240px;">
+              <div class="popup-title">${addr.nom}</div>
+              <div class="popup-desc">
+                <strong>📍 ${addr.adresse}</strong><br>
+                <strong>⏰ ${addr.horaires || ''}</strong><br><br>
+                ${addr.description || ''}
+                <br>
+                <a href="${mapsUrl}" target="_blank" class="popup-link">📍 Voir sur Google Maps</a>
+              </div>
+            </div>
+          `;
+
+          const marker = L.marker([addr.lat, addr.lng], {
+            title: addr.nom,
+            icon: defaultIcon
+          })
+          .bindPopup(popupContent)
+          .addTo(map);
+
+          // store by id for opening later
+          markersById[addr.id] = marker;
+        });
+
+        // After markers are added, check if URL contains a hash like #id=3 or #3
+        function openMarkerFromHash() {
+          if (!location.hash) return;
+          const m1 = location.hash.match(/#?id=(\d+)/);
+          const m2 = location.hash.match(/^#(\d+)$/);
+          const match = m1 || m2;
+          if (!match) return;
+          const id = parseInt(match[1], 10);
+          const marker = markersById[id];
+          if (marker) {
+            // small animated zoom to the marker, then open popup
+            map.flyTo(marker.getLatLng(), 15, { duration: 0.8 });
+            setTimeout(() => marker.openPopup(), 700);
+          }
+        }
+
+        // Open if hash present now
+        openMarkerFromHash();
+        // Also listen for future hash changes
+        window.addEventListener('hashchange', openMarkerFromHash);
+
+        // Afficher la liste d'adresses (utilise la variable globale adresses)
+        updateAddressesWithDistance();
       })
-      .bindPopup(popupContent)
-      .addTo(map);
-
-      // garder la référence sur l'objet adresse pour ouvrir le popup après le fly
-      addr._marker = marker;
-    });
-
-    // Fonction pour faire un flyTo + ouvrir popup (zoom effect)
-    function flyToAddress(addr, zoom = 15, duration = 0.9) {
-      if (!addr || !map) return;
-      map.flyTo([addr.lat, addr.lng], zoom, { duration });
-      if (addr._marker) {
-        setTimeout(() => {
-          addr._marker.openPopup();
-        }, duration * 1000);
-      }
-    }
+      .catch(err => {
+        console.warn('Impossible de charger adresses.json', err);
+        // en cas d'erreur, on conserve adresses vide et on met à jour l'affichage
+        adresses = [];
+        updateAddressesWithDistance();
+      });
 
     // Géolocalisation
     document.getElementById('geolocBtn').addEventListener('click', function() {
@@ -359,14 +357,7 @@
           }
           userMarker = L.marker([lat, lng], {
             title: 'Votre position',
-            icon: L.icon({
-              iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-              shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              popupAnchor: [1, -34],
-              shadowSize: [41, 41]
-            })
+            icon: defaultIcon
           })
           .bindPopup('📍 Votre position actuelle')
           .addTo(map);
@@ -432,20 +423,12 @@
         card.innerHTML = `
           <h3>${addr.nom}</h3>
           <p><strong>📍</strong> ${addr.adresse}</p>
-          <p><strong>⏰</strong> ${addr.horaires}</p>
-          <p>${addr.description}</p>
+          <p><strong>⏰</strong> ${addr.horaires || ''}</p>
+          <p>${addr.description || ''}</p>
           ${distanceHTML}
           <span class="type">${addr.type}</span>
           <a href="${mapsUrl}" target="_blank" class="google-maps-btn">📍 Voir sur Google Maps</a>
         `;
-
-        // cliquer sur la carte fait flyTo + ouvre la popup (zoom effect)
-        card.addEventListener('click', () => flyToAddress(addr, 15, 0.9));
-
-        // éviter que le clic sur le lien Google Maps déclenche aussi le fly
-        const link = card.querySelector('.google-maps-btn');
-        if (link) link.addEventListener('click', (e) => e.stopPropagation());
-
         listContainer.appendChild(card);
       });
     }
