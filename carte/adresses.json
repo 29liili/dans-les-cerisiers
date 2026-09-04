@@ -46,12 +46,12 @@
   {
     "id": 5,
     "nom": "川犇跷脚牛肉(高铁站店)",
-    "adresse": "1111 RuiXiang Lu, ShiZhongQu, LeShan, SiChuan, 614006 四川省乐山市市中区瑞祥路一段1111号(市中区政务中心斜对面)",
+    "adresse": "1111 Ruixiang Lu, Shizhong, LeShan 四川省乐山市市中区瑞祥路一段1111号(市中区政务中心斜对面)",
     "type": "Cuisine du Sichuan",
     "description": "Restaurant à l'angle d'un gros immeuble et illuminé d'une enseigne rouge, il est tenu par des grands-mères et absolument délicieux. Il faut prendre le bouillon de boeuf, le foie stir-fried et les oeufs à la tomate.",
     "lat": 29.59743651796995,
     "lng": 103.7140991657761,
-    "horaires": "7j sur 7 9H-22H",
+    "horaires": "Lun-Dim 9H-22H",
     "date": "2026-09-01T16:40:00Z"
   }
 ]
