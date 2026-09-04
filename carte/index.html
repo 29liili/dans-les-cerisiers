@@ -78,6 +78,7 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
     }
     
     .adresse-card:hover {
@@ -292,7 +293,7 @@
       maxZoom: 19
     }).addTo(map);
     
-    // Ajouter les marqueurs des adresses
+    // Ajouter les marqueurs des adresses (et garder une référence)
     adresses.forEach(addr => {
       const mapsUrl = getGoogleMapsUrl(addr.adresse, addr.lat, addr.lng);
       const popupContent = `
@@ -308,13 +309,27 @@
         </div>
       `;
       
-      L.marker([addr.lat, addr.lng], {
+      const marker = L.marker([addr.lat, addr.lng], {
         title: addr.nom,
         icon: pinkIcon
       })
       .bindPopup(popupContent)
       .addTo(map);
+
+      // garder la référence sur l'objet adresse pour ouvrir le popup après le fly
+      addr._marker = marker;
     });
+
+    // Fonction pour faire un flyTo + ouvrir popup (zoom effect)
+    function flyToAddress(addr, zoom = 15, duration = 0.9) {
+      if (!addr || !map) return;
+      map.flyTo([addr.lat, addr.lng], zoom, { duration });
+      if (addr._marker) {
+        setTimeout(() => {
+          addr._marker.openPopup();
+        }, duration * 1000);
+      }
+    }
 
     // Géolocalisation
     document.getElementById('geolocBtn').addEventListener('click', function() {
@@ -423,6 +438,14 @@
           <span class="type">${addr.type}</span>
           <a href="${mapsUrl}" target="_blank" class="google-maps-btn">📍 Voir sur Google Maps</a>
         `;
+
+        // cliquer sur la carte fait flyTo + ouvre la popup (zoom effect)
+        card.addEventListener('click', () => flyToAddress(addr, 15, 0.9));
+
+        // éviter que le clic sur le lien Google Maps déclenche aussi le fly
+        const link = card.querySelector('.google-maps-btn');
+        if (link) link.addEventListener('click', (e) => e.stopPropagation());
+
         listContainer.appendChild(card);
       });
     }
