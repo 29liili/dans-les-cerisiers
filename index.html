@@ -113,8 +113,15 @@
         grid.innerHTML = '';
 
         latest.forEach(a => {
+          // Utiliser la même structure que les cartes de recettes pour harmoniser
           const card = document.createElement('article');
-          card.className = 'adresse-card';
+          card.className = 'recipe-card';
+
+          // Petite vignette : si vous avez une image pour l'adresse, ajoutez le champ image dans adresses.json
+          // sinon on affiche le logo du site comme placeholder
+          const img = document.createElement('img');
+          img.className = 'recipe-thumb';
+          img.src = a.image || '/dans-les-cerisiers/assets/images/logo.png';
 
           const title = document.createElement('h4');
           title.textContent = a.nom;
@@ -122,8 +129,8 @@
           title.style.fontSize = '1.1rem';
 
           const addr = document.createElement('p');
-          addr.textContent = a.adresse;
           addr.className = 'recipe-description';
+          addr.textContent = a.adresse;
 
           const type = document.createElement('span');
           type.className = 'recipe-category ' + (a.type ? a.type.replace(/\s+/g, '-').toLowerCase() : 'adresse');
@@ -135,20 +142,20 @@
           mapsLink.className = 'see-all-btn';
           mapsLink.textContent = 'Voir sur Google Maps';
 
-          // Date affichée optionnelle
+          // Date affichée optionnelle (format court FR)
           let dateEl = null;
           if (a.date) {
             dateEl = document.createElement('div');
             dateEl.className = 'recipe-description';
             const d = new Date(a.date);
-            // format local FR court
             dateEl.textContent = `Trouvée le ${d.toLocaleDateString('fr-FR')}`;
           }
 
+          card.appendChild(img);
           card.appendChild(title);
+          card.appendChild(type);
           card.appendChild(addr);
           if (dateEl) card.appendChild(dateEl);
-          card.appendChild(type);
           card.appendChild(mapsLink);
 
           // rendre la carte cliquable vers la page d'adresses (avec un #id pour repérer)
