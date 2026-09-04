@@ -100,7 +100,7 @@
   </footer>
 
   <!-- SCRIPT COMPLET -->
-<script>
+ <script>
 
 /* ============================
    Retirer les accents
@@ -124,10 +124,21 @@ document.getElementById("add-recipe-btn").onclick = () => {
   const form = document.getElementById("add-recipe-form");
   const preview = document.getElementById("preview");
 
-  form.style.display = "block";
-  preview.style.display = "block";
-  overlay.classList.add("show");
-  document.body.classList.add("modal-open");
+  const isOpen = overlay.classList.contains("show");
+
+  if (!isOpen) {
+    form.style.display = "block";
+    preview.style.display = "block";
+    overlay.classList.add("show");
+    document.body.classList.add("modal-open");
+  } else {
+    overlay.classList.remove("show");
+    document.body.classList.remove("modal-open");
+    setTimeout(() => {
+      form.style.display = "none";
+      preview.style.display = "none";
+    }, 350);
+  }
 };
 
 document.getElementById("close-panel").onclick = () => {
@@ -179,9 +190,6 @@ function updatePreview() {
 
   document.getElementById("preview-title").textContent =
     document.getElementById("new-title").value;
-
-  document.getElementById("preview-description").textContent =
-    document.getElementById("new-description").value;
 
   const cat = document.getElementById("new-category").value;
   const catEl = document.getElementById("preview-category");
