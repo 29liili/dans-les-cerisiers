@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "nom": "Les Cerisiers - Centre",
+    "adresse": "123 Rue du Verger, 75000 Paris",
+    "type": "Magasin principal",
+    "description": "Notre boutique principale avec une large sélection de produits.",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "horaires": "Lun-Dim: 10h-19h",
+    "date": "2025-06-01T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "nom": "Les Cerisiers - Banlieue",
+    "adresse": "456 Avenue de la Paix, 92400 Courbevoie",
+    "type": "Magasin secondaire",
+    "description": "Notre succursale en proche banlieue pour vous servir.",
+    "lat": 48.8960,
+    "lng": 2.2662,
+    "horaires": "Lun-Dim: 10h-19h",
+    "date": "2026-01-15T12:00:00Z"
+  },
+  {
+    "id": 3,
+    "nom": "La Petite Cerise",
+    "adresse": "12 Rue des Fleurs, 75010 Paris",
+    "type": "Café gourmand",
+    "description": "Un petit café cosy pour goûter nos créations.",
+    "lat": 48.8745,
+    "lng": 2.3567,
+    "horaires": "Mar-Dim: 9h-18h",
+    "date": "2026-05-10T09:30:00Z"
+  },
+  {
+    "id": 4,
+    "nom": "Les Délices du Verger",
+    "adresse": "98 Boulevard Saint-Michel, 75005 Paris",
+    "type": "Épicerie fine",
+    "description": "Épicerie fine avec sélection bio et produits locaux.",
+    "lat": 48.8483,
+    "lng": 2.3430,
+    "horaires": "Lun-Sam: 10h-19h",
+    "date": "2026-08-20T14:15:00Z"
+  },
+  {
+    "id": 5,
+    "nom": "Atelier Cerisier",
+    "adresse": "5 Impasse du Goût, 75011 Paris",
+    "type": "Atelier & Dégustation",
+    "description": "Atelier de production et dégustations ponctuelles.",
+    "lat": 48.8560,
+    "lng": 2.3730,
+    "horaires": "Sur rendez-vous",
+    "date": "2026-09-01T16:40:00Z"
+  }
+]
