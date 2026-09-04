@@ -169,6 +169,11 @@ h3 {
   font-family: 'Manrope', sans-serif;
 }
 
+.latest-addresses h3 {
+  font-family: 'Ballet', cursive;
+  font-size: 1.25rem;
+}
+
 /* ============================
    BARRE DE RECHERCHE + BOUTON +
 ============================ */
