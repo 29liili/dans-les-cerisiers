@@ -15,6 +15,52 @@
       margin: 30px 0;
       border: 1px solid #f0f0f0;
     }
+
+    .geoloc-section {
+      background: #fff6f9;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      text-align: center;
+      border: 1px solid #f0e0e8;
+    }
+
+    .geoloc-btn {
+      background-color: #d88aa3;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .geoloc-btn:hover {
+      background-color: #c77493;
+      transform: scale(1.02);
+    }
+
+    .geoloc-btn:disabled {
+      background-color: #ddd;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .geoloc-status {
+      font-size: 0.9rem;
+      color: #5a4a63;
+      margin-top: 10px;
+    }
+
+    .geoloc-status.success {
+      color: #6b7a55;
+    }
+
+    .geoloc-status.error {
+      color: #b84a55;
+    }
     
     .adresses-list {
       display: grid;
@@ -51,6 +97,21 @@
       margin: 8px 0;
       line-height: 1.6;
       font-size: 0.95rem;
+    }
+
+    .distance-info {
+      background: #fff6f9;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-weight: 600;
+      color: #d88aa3;
+      font-size: 0.9rem;
+    }
+
+    .distance-info.loading {
+      color: #999;
+      font-style: italic;
     }
     
     .adresse-card .type {
@@ -119,13 +180,6 @@
     .popup-link:hover {
       background-color: #c77493;
     }
-
-    .no-recipes {
-      text-align: center;
-      color: #999;
-      padding: 2rem;
-      font-style: italic;
-    }
   </style>
 </head>
 <body>
@@ -142,6 +196,11 @@
 
   <main>
     <h2 class="page-title">Mes adresses</h2>
+    
+    <div class="geoloc-section">
+      <button id="geolocBtn" class="geoloc-btn">📍 Localiser ma position</button>
+      <div id="geolocStatus" class="geoloc-status"></div>
+    </div>
     
     <div id="map"></div>
     
@@ -193,6 +252,22 @@
       }
     ];
 
+    let userLocation = null;
+    let userMarker = null;
+
+    // Fonction pour calculer la distance en km entre deux points GPS
+    function calculateDistance(lat1, lng1, lat2, lng2) {
+      const R = 6371; // Rayon de la Terre en km
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLng = (lng2 - lng1) * Math.PI / 180;
+      const a = 
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return Math.round(R * c * 10) / 10; // Arrondir à 1 décimale
+    }
+
     // Fonction pour créer l'URL Google Maps
     function getGoogleMapsUrl(adresse, lat, lng) {
       return `https://www.google.com/maps/search/${encodeURIComponent(adresse)}/@${lat},${lng},15z`;
@@ -207,7 +282,7 @@
       maxZoom: 19
     }).addTo(map);
     
-    // Ajouter les marqueurs
+    // Ajouter les marqueurs des adresses
     adresses.forEach(addr => {
       const mapsUrl = getGoogleMapsUrl(addr.adresse, addr.lat, addr.lng);
       const popupContent = `
@@ -229,23 +304,120 @@
       .bindPopup(popupContent)
       .addTo(map);
     });
-    
-    // Afficher la liste des adresses en dessous de la carte
-    const listContainer = document.getElementById('adressesList');
-    adresses.forEach(addr => {
-      const mapsUrl = getGoogleMapsUrl(addr.adresse, addr.lat, addr.lng);
-      const card = document.createElement('div');
-      card.className = 'adresse-card';
-      card.innerHTML = `
-        <h3>${addr.nom}</h3>
-        <p><strong>📍</strong> ${addr.adresse}</p>
-        <p><strong>⏰</strong> ${addr.horaires}</p>
-        <p>${addr.description}</p>
-        <span class="type">${addr.type}</span>
-        <a href="${mapsUrl}" target="_blank" class="google-maps-btn">📍 Voir sur Google Maps</a>
-      `;
-      listContainer.appendChild(card);
+
+    // Géolocalisation
+    document.getElementById('geolocBtn').addEventListener('click', function() {
+      const btn = this;
+      const status = document.getElementById('geolocStatus');
+      
+      btn.disabled = true;
+      status.textContent = '📍 Localisation en cours...';
+      status.className = 'geoloc-status';
+
+      if (!navigator.geolocation) {
+        status.textContent = '❌ La géolocalisation n\'est pas disponible sur votre navigateur.';
+        status.className = 'geoloc-status error';
+        btn.disabled = false;
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          userLocation = { lat, lng };
+
+          // Ajouter un marqueur pour la position de l'utilisateur
+          if (userMarker) {
+            map.removeLayer(userMarker);
+          }
+          userMarker = L.marker([lat, lng], {
+            title: 'Votre position',
+            icon: L.icon({
+              iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+            })
+          })
+          .bindPopup('📍 Votre position actuelle')
+          .addTo(map);
+
+          // Centrer la carte sur l'utilisateur
+          map.setView([lat, lng], 12);
+
+          status.textContent = '✅ Position trouvée ! Les adresses sont triées par distance.';
+          status.className = 'geoloc-status success';
+          btn.disabled = false;
+
+          // Mettre à jour l'affichage des adresses avec les distances
+          updateAddressesWithDistance();
+        },
+        function(error) {
+          let errorMsg = '❌ Erreur de localisation : ';
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              errorMsg += 'Permission refusée. Activez la géolocalisation dans les paramètres de votre navigateur.';
+              break;
+            case error.POSITION_UNAVAILABLE:
+              errorMsg += 'Position indisponible.';
+              break;
+            case error.TIMEOUT:
+              errorMsg += 'Délai d\'attente dépassé.';
+              break;
+            default:
+              errorMsg += 'Erreur inconnue.';
+          }
+          status.textContent = errorMsg;
+          status.className = 'geoloc-status error';
+          btn.disabled = false;
+        }
+      );
     });
+
+    // Fonction pour mettre à jour l'affichage avec les distances
+    function updateAddressesWithDistance() {
+      const listContainer = document.getElementById('adressesList');
+      listContainer.innerHTML = '';
+
+      // Trier les adresses par distance si la localisation est active
+      let sortedAdresses = [...adresses];
+      if (userLocation) {
+        sortedAdresses.sort((a, b) => {
+          const distA = calculateDistance(userLocation.lat, userLocation.lng, a.lat, a.lng);
+          const distB = calculateDistance(userLocation.lat, userLocation.lng, b.lat, b.lng);
+          return distA - distB;
+        });
+      }
+
+      sortedAdresses.forEach(addr => {
+        const mapsUrl = getGoogleMapsUrl(addr.adresse, addr.lat, addr.lng);
+        const card = document.createElement('div');
+        card.className = 'adresse-card';
+        
+        let distanceHTML = '';
+        if (userLocation) {
+          const distance = calculateDistance(userLocation.lat, userLocation.lng, addr.lat, addr.lng);
+          distanceHTML = `<div class="distance-info">📍 ${distance} km de votre position</div>`;
+        }
+
+        card.innerHTML = `
+          <h3>${addr.nom}</h3>
+          <p><strong>📍</strong> ${addr.adresse}</p>
+          <p><strong>⏰</strong> ${addr.horaires}</p>
+          <p>${addr.description}</p>
+          ${distanceHTML}
+          <span class="type">${addr.type}</span>
+          <a href="${mapsUrl}" target="_blank" class="google-maps-btn">📍 Voir sur Google Maps</a>
+        `;
+        listContainer.appendChild(card);
+      });
+    }
+
+    // Affichage initial sans distances
+    updateAddressesWithDistance();
   </script>
 </body>
 </html>
