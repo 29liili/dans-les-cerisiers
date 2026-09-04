@@ -173,6 +173,48 @@ h3 {
   font-family: 'Ballet', cursive;
   font-size: 2.2rem;
 }
+/* Cartes adresses — même style que les cartes recettes */
+.adresse-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.adresse-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.adresse-card h4 {
+  margin: 0;
+  font-family: 'Ballet', cursive;
+  font-size: 1.25rem;
+}
+
+.adresse-card .recipe-description {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.adresse-card .recipe-category {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background: #f2f2f2;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.adresse-card a.see-all-btn {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
 
 /* ============================
    BARRE DE RECHERCHE + BOUTON +
