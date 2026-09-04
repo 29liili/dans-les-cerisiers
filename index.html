@@ -136,21 +136,22 @@
           const type = document.createElement('span');
           type.className = 'recipe-category ' + (a.type ? a.type.replace(/\s+/g, '-').toLowerCase() : 'adresse');
           type.textContent = a.type || '';
-          // style du tag similaire à carte/index
+          // enlever l'encadré : présentation simple (texte, couleur rose) — pas de fond ni bordure
           type.style.display = 'inline-block';
-          type.style.backgroundColor = '#fff6f9';
+          type.style.backgroundColor = 'transparent';
           type.style.color = '#d88aa3';
-          type.style.padding = '6px 12px';
-          type.style.borderRadius = '12px';
-          type.style.fontSize = '0.75rem';
+          type.style.padding = '0';
+          type.style.borderRadius = '0';
+          type.style.fontSize = '0.85rem';
           type.style.fontWeight = '600';
-          type.style.marginTop = '10px';
+          type.style.marginTop = '6px';
 
+          // Bouton Google Maps (style repris de carte/index)
           const mapsLink = document.createElement('a');
           mapsLink.href = `https://www.google.com/maps/search/${encodeURIComponent(a.adresse)}/@${a.lat},${a.lng},15z`;
           mapsLink.target = '_blank';
-          mapsLink.className = 'see-all-btn';
-          mapsLink.textContent = 'Voir sur Google Maps';
+          mapsLink.className = 'google-maps-btn';
+          mapsLink.textContent = '📍 Voir sur Google Maps';
 
           card.appendChild(title);
           card.appendChild(type);
