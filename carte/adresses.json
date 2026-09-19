@@ -54,4 +54,85 @@
     "horaires": "Lun-Dim 9H-22H",
     "date": "2026-09-01T16:40:00Z"
   }
+  {
+  "id": 6,
+  "nom": "Tsujiri",
+  "adresse": "1 Rue de la Bourse, 75002 Paris",
+  "type": "Salon de thé",
+  "description": "Matcha haut de gamme importé du Japon. Glaces, dessert et lattes au matcha ou hojicha. Entre 6 et 12€.",
+  "lat": 48.868980,
+  "lng": 2.340630,
+  "horaires": "Lun-Dim: 11h00–19h00",
+  "date": "2026-09-19T20:46:00Z"
+}
+{
+  "id": 7,
+  "nom": "Creamy Daily",
+  "adresse": "49 Rue Sainte-Anne, 75002 Paris",
+  "type": "Salon de thé",
+  "description": "Salon de thé proposant des boissons gourmandes, j'y vais personellement pour le Matcha à l'eau de coco. Il y a aussi des desserts maison comme le gâteau mille-crêpes. Entre 6 et 12€.",
+  "lat": 48.868430,
+  "lng": 2.335870,
+  "horaires": "Mar-Dim: 11h00–19h00",
+  "date": "2026-09-19T20:49:00Z"
+}
+{
+  "id": 8,
+  "nom": "Omusubi Gonbei",
+  "adresse": "27 Rue des Petits Champs, 75001 Paris, France",
+  "type": "Cuisine japonaise",
+  "description": "Omusubi (onigiri) préparés chaque jour avec du riz japonais et des garnitures traditionnelles. Options végétariennes et recettes saisonnières. Entre 3 et 4€ l’omusubi.",
+  "lat": 48.866980,
+  "lng": 2.337410,
+  "horaires": "Lun-Dim: 11h00–20h00",
+  "date": "2026-09-19T20:56:00Z"
+}
+  {
+  "id": 9,
+  "nom": "Eskal",
+  "adresse": "47 Rue des Mathurins, 75008 Paris, France",
+  "type": "Restaurant gastronomique",
+  "description": "Restaurant gastronomique dirigé par le chef Alexandre Chambat et desserts par Nahel Mani. Cuisine contemporaine centrée sur le produit et la saisonnalité.",
+  "lat": 48.873540,
+  "lng": 2.325890,
+  "horaires": "Mar-Sam: 12h00–14h00, 19h00–22h00",
+  "date": "2026-09-19T20:58:00Z"
+}
+{
+  "id": 10,
+  "nom": "Dong Né Chicken",
+  "adresse": "51 Rue de Richelieu, 75001 Paris, France",
+  "type": "Cuisine coréenne",
+  "description": "J'y vais pour le Bibimbap, bien équilibré et nourrissant. Plats coréens faits maison et bon poulet frit. Entre 10 et 15€.",
+  "lat": 48.868720,
+  "lng": 2.338950,
+  "horaires": "Lun-Dim: 12h–22h30",
+  "date": "2026-09-19T21:02:00Z"
+}
+  {
+  "id": 11,
+  "nom": "Shera",
+  "adresse": "39 Rue Brochant, 75017 Paris, France",
+  "type": "Cuisine indienne",
+  "description": "Restaurant indien réputé pour ses naan. Plats traditionnels de la diaspora chinoise en Inde, cuisine unique et plutôt méconnue. C'est savoureux et généreux. Entre 15 et 18€.",
+  "lat": 48.887210,
+  "lng": 2.318540,
+  "horaires": "Mar-Dim: 12h-14h30 et 18h–22h",
+  "date": "2026-09-19T21:04:00Z"
+}
+  {
+  "id": 12,
+  "nom": "Astrance",
+  "adresse": "32 Rue Longchamp, 75016 Paris, France",
+  "type": "Restaurant gastronomique",
+  "description": "Restaurant gastronomique renommé, à la cuisine précise et centrée sur le produit. Expérience culinaire haut de gamme dans un cadre intime.",
+  "lat": 48.866310,
+  "lng": 2.289870,
+  "horaires": "Lun-Ven: 12h00–14h00, 19h00–22h00",
+  "date": "2026-09-19T21:10:00Z"
+}
+
+
+
+
 ]
