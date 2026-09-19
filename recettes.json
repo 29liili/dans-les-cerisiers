@@ -106,7 +106,7 @@
   "id": 1785278699358,
   "titre": "Cookies",
   "categorie": "sucre",
-  "description": "Mes specialités gourmandes lol: - Matcha, sarrasin et chocolat au lait\n et -  Cacahouète, chocolat noir et fleur de sel. \n",
+  "description": "Biscuit américain né dans les années 1930, célèbre pour son contraste entre bords croustillants et cœur moelleux. Cette gourmandise se décligne à l'infini, voici notamment mes spécialités gourmandes : matcha, sarrasin et chocolat au lait, ou encore cacahouète, chocolat noir et fleur de sel.",
   "image": "/dans-les-cerisiers/assets/images/cookie.png",
   "etapes": [
     "Mélanger <strong>250g de farine</strong> + <strong>90g de cassonade</strong> + <strong>0,5 sachet de levure chimique</strong> + <strong>sel</strong>",
@@ -121,17 +121,18 @@
   "id": 1785343097813,
   "titre": "Appareil à quiche",
   "categorie": "base",
-  "description": "Appareil à crème prise.",
+  "description": "Appareil à crème prise, préparation liquide de la cuisine traditionnelle, également appelée « migaine » en Lorraine où la quiche est née au XVIe siècle.",
   "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
-    "Mélanger <strong>2 jaunes d'oeuf</strong> + <strong>2 oeufs</strong> + <strong>125g de crème liquide</strong> + <strong>125g de lait</strong> et assaisonner."
+    "Mélanger <strong>2 jaunes d'oeuf</strong> + <strong>2 oeufs</strong> + <strong>125g de crème liquide</strong> + <strong>125g de lait</strong> et assaisonner.",
+    "Cuisson en fonction de la nature du plat préparé, mais estimer 30 à 40min à 180°c"
   ]
 },
   {
   "id": 1785343567132,
   "titre": "Pâte brisée",
   "categorie": "base",
-  "description": "Pâte de base pour les tartes et quiches.",
+  "description": "Base fondamentale de la pâtisserie et de la cuisine française, cette pâte neutre à la texture friable et légère remonte au Moyen Âge, époque où elle servait d'enveloppe pour cuire et conserver les viandes en tourte.",
   "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Faire un puit avec <strong>250g de farine</strong> + <strong>5g de sel</strong>.",
@@ -144,7 +145,7 @@
   "id": 1785344585275,
   "titre": "Pommes dauphine",
   "categorie": "chaud",
-  "description": "Un mélange de pomme de terre et de pâte à choux.",
+  "description": "Spécialité croustillante et fondante de la gastronomie française, cette préparation est née dans la seconde moitié du XIXe siècle et rend hommage à la Dauphine de France. C'est un mélange de pomme de terre et de pâte à choux. Légères et soufflées à la cuisson, elles accompagnent traditionnellement les viandes en sauce, les gibiers et les rôtis de fête.",
   "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Cuire <strong>400g de pommes de terre</strong> en robe des champs (non épluchées, dans de l'aluminium au four à 200°c.)",
@@ -156,9 +157,9 @@
 },
   {
   "id": 1785345212235,
-  "titre": "Laitue braisée",
+  "titre": "Laitues braisées",
   "categorie": "chaud",
-  "description": "Un classique en école de cuisine.",
+  "description": "Garniture classique de la cuisine bourgeoise française, ce plat tire ses origines des techniques de cuisson lente du XVIIIe siècle visant à sublimer les légumes potagers.Elles accompagnent traditionnellement les viandes blanches, les rôtis et les volailles.",
   "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Nettoyer les <strong>laitues</strong> et enlever les feuilles abimées. Tailler une garniture aromatique: <strong>carottes</strong> + <strong>oignons</strong> + <strong>celeri branche</strong>.",
@@ -172,7 +173,7 @@
   "id": 1785345758349,
   "titre": "Pickles",
   "categorie": "froid",
-  "description": "Cette méthode permet de condimenter les plats, et de conserver des légumes et fruits, qui parfois auraient finis à la poubelle.",
+  "description": "Cette méthode ancienne de conservation par macération dans du vinaigre et des épices est un condiment phare issu de la cuisine anglo-saxonne. Qu'il s'agisse de petits concombres croquants, d'oignons rouges ou de légumes de saison, ils apportent une touche d'acidité et du relief aux sandwichs, salades...",
   "image": "/dans-les-cerisiers/assets/images/no.JPEG",
   "etapes": [
     "Faire bouillir <strong>100g de sucre</strong> + <strong>200g de vinaigre</strong> + <strong>100g d'eau</strong>.",
