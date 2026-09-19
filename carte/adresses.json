@@ -53,7 +53,7 @@
     "lng": 103.7140991657761,
     "horaires": "Lun-Dim 9H-22H",
     "date": "2026-09-01T16:40:00Z"
-  }
+  },
   {
   "id": 6,
   "nom": "Tsujiri",
@@ -64,7 +64,7 @@
   "lng": 2.340630,
   "horaires": "Lun-Dim: 11h00–19h00",
   "date": "2026-09-19T20:46:00Z"
-}
+},
 {
   "id": 7,
   "nom": "Creamy Daily",
@@ -75,7 +75,7 @@
   "lng": 2.335870,
   "horaires": "Mar-Dim: 11h00–19h00",
   "date": "2026-09-19T20:49:00Z"
-}
+},
 {
   "id": 8,
   "nom": "Omusubi Gonbei",
@@ -86,7 +86,7 @@
   "lng": 2.337410,
   "horaires": "Lun-Dim: 11h00–20h00",
   "date": "2026-09-19T20:56:00Z"
-}
+},
   {
   "id": 9,
   "nom": "Eskal",
@@ -97,7 +97,7 @@
   "lng": 2.325890,
   "horaires": "Mar-Sam: 12h00–14h00, 19h00–22h00",
   "date": "2026-09-19T20:58:00Z"
-}
+},
 {
   "id": 10,
   "nom": "Dong Né Chicken",
@@ -108,7 +108,7 @@
   "lng": 2.338950,
   "horaires": "Lun-Dim: 12h–22h30",
   "date": "2026-09-19T21:02:00Z"
-}
+},
   {
   "id": 11,
   "nom": "Shera",
@@ -119,7 +119,7 @@
   "lng": 2.318540,
   "horaires": "Mar-Dim: 12h-14h30 et 18h–22h",
   "date": "2026-09-19T21:04:00Z"
-}
+},
   {
   "id": 12,
   "nom": "Astrance",
@@ -130,9 +130,17 @@
   "lng": 2.289870,
   "horaires": "Lun-Ven: 12h00–14h00, 19h00–22h00",
   "date": "2026-09-19T21:10:00Z"
-}
-
-
-
-
+},
+{
+  "id": 13,
+  "nom": "Laizé",
+  "adresse": "8 Rue de Valois, 75001 Paris, France",
+  "type": "Salon de thé taïwanais",
+  "description": "Bubble tea et thé au lait ou aux fruits frais. Très bonne qualité, peu sucré et large choix pour personnaliser votre boisson",
+  "lat": 48.866980,
+  "lng": 2.336450,
+  "horaires": "Lun-Dim 10h-19h",
+  "date": "2026-09-19T21:15:00Z"
+}, 
+  
 ]
