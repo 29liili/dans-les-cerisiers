@@ -142,5 +142,48 @@
   "horaires": "Lun-Dim 10h-19h",
   "date": "2026-09-19T21:15:00Z"
 }, 
-  
+  {
+  "id": 14,
+  "nom": "Source Matcha Bar",
+  "adresse": "44 Rue Pastourelle, 75003 Paris, France",
+  "type": "Bar à Matcha",
+  "description": "Bar spécialisé où le matcha bio est fraîchement moulu sur place à la meule de pierre. Propose des matchas lattes, boissons artisanales et dégustations dans le Marais.",
+  "lat": 48.862210,
+  "lng": 2.358240,
+  "horaires": "Lun-Dim 10h-18h30",
+  "date": "2026-09-19T21:15:00Z"
+},
+  {
+  "id": 15,
+  "nom": "Sola",
+  "adresse": "12 Rue de l'Hôtel Colbert, 75005 Paris",
+  "type": "Restaurant gastronomique franco-japonais",
+  "description": "Cuisine gastronomique étoilée fusionnant les produits français et la sensibilité japonaise, servie dans un cadre intimiste aux caves voûtées en pierre et sur un tatami dans la salle du bas.",
+  "lat": 48.852130,
+  "lng": 2.348910,
+  "horaires": "Mar-Sam 12h30-14h, 19hOO-22h30",
+  "date": "2026-09-19T21:15:00Z"
+},
+  {
+  "id":16,
+  "nom": "Lai'Tcha (Bistrot Yam'Tcha)",
+  "adresse": "7 Rue du Jour, 75001 Paris, France",
+  "type": "Bistrot franco-chinois",
+  "description": "Bistrot imaginé par la cheffe Adeline Grattard, proposant dim sum, plats d'inspiration hongkongaise et thés d'exception.",
+  "lat": 48.863150,
+  "lng": 2.345620,
+  "horaires": "Mar-Sam 12:00–14:30 et 19:00–22:00",
+  "date": "2026-09-19T21:15:00Z"
+},
+  {
+  "id": 17,
+  "nom": "Le Goûter du San Régis",
+  "adresse": "12 Rue Jean Goujon, 75008 Paris, France",
+  "type": "Salon de thé & Pâtisserie raffinée",
+  "description": "Tea time confidentiel sous la verrière de l'hôtel San Régis, proposant les créations pâtissières de la cheffe Jessica Préalpato accompagnées d'une sélection de thés rares.",
+  "lat": 48.866120,
+  "lng": 2.308730,
+  "horaires": "Mer-Sam 15h30-17h30",
+  "date": "2026-09-19T21:15:00Z"
+} 
 ]
